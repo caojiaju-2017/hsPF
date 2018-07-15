@@ -1,0 +1,23 @@
+@charset "utf-8";
+.holder {
+	float:left;clear:both;margin:30px 0;
+}
+.holder a {
+	float:left;width:30px;height:30px;line-height:30px;text-align:center;background:#fff;border:1px solid #c0c0c0;border-radius:20px;margin-right:5px;cursor:pointer;color:#3e3a39;text-decoration:none;
+}
+.holder a:hover {
+	background:#efefef;
+}
+.holder a.jp-previous {
+	border:1px solid #c0c0c0;border-radius:20px;display:block;width:30px;height:30px;background:url(/static/images/pagebarIcon.png) no-repeat;
+}
+.holder a.jp-next {
+	border:1px solid #c0c0c0;border-radius:20px;display:block;width:30px;height:30px;background:url(/static/images/pagebarIcon.png) no-repeat 0 -30px;
+}
+.holder a.jp-current, a.jp-current:hover {
+	background:#529cbf;border:1px solid #529cbf;
+	color: #fff;
+}
+.holder span {
+	float:left;margin: 0 5px;
+}

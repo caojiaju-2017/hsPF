@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>公司新闻</title>
+<link href="favicon.ico" type="image/x-icon" rel="icon"/>
+<link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/pagination.css">
+
+<script type="text/javascript" src="/static/js/jquery-1.7.1.js" ></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
+
+<script type="text/javascript">
+	var Base = {};
+</script>
+<script type="text/javascript" src="/static/js/pagination.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	Base.pagination({
+        id: 'pagination-demo', // 容器的ID
+        paginationClass: 'pagination',
+        pageShape: 'circle', // 'rect' 或 'circle' （'circle' IE8及以下无效）
+        startPage: 1, // 开始页数
+        totalCount: 39, // 总记录数
+        pageLimit: 5,
+        pageList: [], // 分页，默认[20, 30, 50]
+        onPageClick: function (event, currentPage, pageSize) { // 当前页，分页大小
+            var sUrl = "news"+1+"_"+currentPage+".html";
+            if(sUrl == "news1_1.html"){
+                sUrl = "news.html";
+            }
+            window.location = sUrl;
+        }
+    });
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="headDiv">
+    <div class="logo" onClick="window.location='index.html'"></div>
+    <ul class="headMenu">
+	    		<li onClick="window.location='index.html'" class="">首 页</li>
+	    		<li onClick="window.location='about.html'" class="">关于汉森</li>
+	    		<!-- 选中菜单 -->
+	    		<li onClick="window.location='news.html'" class="select">公司新闻</li>
+	    		<li onClick="window.location='product.html'" class="">产品中心</li>
+	    		<li onClick="window.location='service.html'" class="">服务专区</li>
+	    		<li onClick="window.location='hr.html'" class="">人力资源</li>
+	    		<li onClick="window.location='contect.html'" class="">联系我们</li>
+    </ul>
+</div>
+
+<div class="newsDiv">
+	<div class="newsPosition">
+    	<h1>公司新闻</h1>
+    </div>
+</div>
+
+<div class="middleDiv"> 
+   <div class="newsRight">
+        <div class="knowShare xw_knowList">
+        	<h1>行业热点</h1>
+            <ul>
+                	<li onClick="window.location=('newsDetail/newsDetail_102645.html')">· 窝窝团更新招股书 融资额下调至不足6千万美元</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102648.html')">· 互联网，个性“飞扬跋扈”的时代</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102651.html')">· 百度已战略入股拼车软件公司51用车？</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102653.html')">· 三星宣布涉足手机健康医疗 与IT行业及医疗机构合作</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102656.html')">· 涂子沛执掌阿里最神秘部门IDST：让业务数据化，数据业务化</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102659.html')">· 深度解密 | 互联网+时代的商业新规则</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102662.html')">· 微软宣布与360战略合作 为中国用户免费升级Windows 10</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102665.html')">· 阿里未来的15年:马云押宝大数据</li>
+            </ul>
+                   <div class="more" style="margin:inherit;float:right;" onClick="window.location=('news2_1.html')">更多</div>
+        </div>
+        <div class="knowShare xw_knowList">
+        	<h1>知识分享</h1>
+            <ul>
+                	<li onClick="window.location=('newsDetail/newsDetail_102672.html')">· Spark点燃近实时大数据之火</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102675.html')">· 健康大数据分析方法：关联规则算法</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102678.html')">· 用互联网思维做企业培训</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102682.html')">· 数据分析师的完整知识结构</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102685.html')">· Browser-Sync：响应式Web开发调试利器</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102688.html')">· 敏捷开发的6个实战经验</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102690.html')">· linux的主机管理系统LuManager 中文名称走自己的路</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102694.html')">· 通俗解释主要编程语言及其用途</li>
+            </ul>
+                   <div class="more" style="margin:inherit;float:right;" onClick="window.location=('news3_1.html')">更多</div>
+        </div>
+        <div class="knowShare xw_knowList">
+        	<h1>成功故事</h1>
+            <ul>
+                	<li onClick="window.location=('newsDetail/newsDetail_102643.html')">· 找钱、留人、产品定位？83后CEO的创业经验谈</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102640.html')">· 最年轻的10亿美金俱乐部成员：Slack凭什么快速崛起？</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102637.html')">· 传媒大学“创意云”——这里有你的好莱坞梦</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102635.html')">· 科技行业数据库CrunchBase的大计划</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102632.html')">· 腾讯如何在庞大组织体系下保持极强的执行力</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102630.html')">· 一位已为人母的投资人眼里的创业机会</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102627.html')">· Google创始人拉里·佩奇密歇根大学毕业典礼演讲</li>
+                	<li onClick="window.location=('newsDetail/newsDetail_102624.html')">· 战略：真实性检验</li>
+            </ul>
+                   <div class="more" style="margin:inherit;float:right;" onClick="window.location=('news4_1.html')">更多</div>
+        </div>
+    </div> 
+   
+    <div class="newsLeft">
+        <div class="newsFirst">
+        	<h1 onClick="window.open('newsDetail/newsDetail_103903.html')">“NAK科技杯”广东省信息通信行业第二届网络安全技能大赛圆满落幕</h1>
+            <p>“NAK科技杯”广东省信息通信行业第二届网络安全技能大赛圆满落幕，NAK科技或比赛“特殊贡献奖”</p>
+            <span>2018-06-30</span>
+        </div>
+        <ul class="newsList" style="min-height:0px;" id="itemContainer">
+	<li>
+	            <div>
+        
+            <h1 onClick="window.open('newsDetail/newsDetail_103750.html')">联通携手NAK科技建设雄安新区智慧大数据平台</h1>
+            <p>联通雄安分公司建设雄安智慧微城体验中心项目落地雄安，其中，NAK科技与联通网络研究院合作建设智慧城市展厅大数据平台。</p>
+            <span>2018-05-10</span>
+        </div>
+    </li>	<li>
+	            <div>
+        
+            <h1 onClick="window.open('newsDetail/newsDetail_103746.html')">NAK科技成功加入中国移动物联网联盟</h1>
+            <p>2018年4月，NAK科技成功加入中国移动物联网联盟，成为物联网安全执委会成员。</p>
+            <span>2018-04-27</span>
+        </div>
+    </li>	<li>
+	            <div>
+        
+            <h1 onClick="window.open('newsDetail/newsDetail_103744.html')">NAK科技当选中国联通物联网产业联盟理事单位</h1>
+            <p>4月13日下午，中国联通物联网产业联盟第一届理事大会在北京顺利召开，50多家企业受邀出席会议。</p>
+            <span>2018-04-13</span>
+        </div>
+    </li>	<li>
+	            <div>
+        
+            <h1 onClick="window.open('newsDetail/newsDetail_103740.html')">岭南私享在凯通，共话企业信息化</h1>
+            <p>凯通作为东道主承办广东省中小企业促进会岭南商道私享会活动，与诸多企业共同探讨信息化在企业转型创新中的作用。</p>
+            <span>2018-03-23</span>
+        </div>
+    </li>	<li>
+	            <div>
+        
+            <h1 onClick="window.open('newsDetail/newsDetail_103736.html')">今年年会哪家强？凯通青春正飞扬——NAK科技召开2018年新春年会暨2017年度表彰大会</h1>
+            <p>NAK科技召开2018年新春年会暨2017年度表彰大会</p>
+            <span>2018-01-27</span>
+        </div>
+    </li>       </ul>
+       <div style="text-align: center;padding-top: 10px;" id="pagination-demo"></div>
+    </div> 
+</div>
+ 
+<iframe frameborder="0" class="footerFrame" scrolling="no" src="footer.html"></iframe> 
+<div class="gotoTop" title="回到顶部"></div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+$(function(){
+	$(':not(.bigQrcode,.smallQrcode)').click(function(e){
+		e.stopPropagation();
+		$('.bigQrcode').fadeOut();
+	});
+	$('.smallQrcode').click(function(e){
+		e.stopPropagation();
+		$('.bigQrcode').fadeIn();
+	});
+});
