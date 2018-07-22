@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'naksoft',
         'USER': 'root',
-        'PASSWORD': 'caojj123',
-        'HOST':'www.h-sen.com',
+        'PASSWORD': '123456',
+        'HOST':'localhost',
         'PORT': '3306',
     }
 }

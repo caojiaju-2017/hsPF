@@ -3,7 +3,7 @@ $(function(){
 //员工风采
 	memberWidth();
 	
-//关于汉森菜单滑动
+//关于NAK菜单滑动
 	var menuTop = 200;
 	var itemTop = {};
 	var itemArr = ['a', 'd', 'e', 'f', 'g'];

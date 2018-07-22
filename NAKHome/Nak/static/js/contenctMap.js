@@ -36,7 +36,7 @@
     }
     
     //标注点数组
-    var markerArr = [{title:"成都汉森教育咨询有限公司",content:"成都市武侯区长益路11号",point:"113.443021|23.174745",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+    var markerArr = [{title:"衢州NAK科技有限责任公司",content:"成都市武侯区长益路11号",point:"113.443021|23.174745",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
 		 ];
     //创建marker
     function addMarker(){

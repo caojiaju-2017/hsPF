@@ -149,7 +149,7 @@ div.slidertextright{position:absolute;bottom:0;float:left;width:100%;}
 .gotoTop{ width:60px; height:60px; display:none;position:fixed; top:100px;right:20px; z-index:999;background:#fff url(/static/images/topIcon.png) no-repeat center;cursor:pointer;border-radius:60px;border:1px solid #9f9f9f;filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity: 0.6;opacity: 0.6;}
 .gotoTop:hover{background:#fff url(/static/images/topIcon.png) no-repeat center;filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity:1;opacity:1;}
 
-/*关于汉森*/
+/*关于NAK*/
 .aboutMenu{background:#eeeeee;overflow:hidden;padding-top:20px;z-index:999;border-bottom:1px solid #ccc;}
 .aboutMenu ul{width:978px;margin:0 auto;}
 .aboutMenu li{float:left;cursor:pointer;width:73px;margin:0 60px;}
@@ -306,15 +306,20 @@ div.slidertextright{position:absolute;bottom:0;float:left;width:100%;}
 .productMenu{background:url(/static/images/productmenuLine.png) repeat-y;width:180px;position:absolute;left:10px;}
 .productMenu li{background:url(/static/images/productmenuBg.png) no-repeat;height:50px;cursor:pointer;margin-bottom:10px;}
 .productMenu li span{float:left;display:block;width:50px;height:50px;}
-.productMenu li h1{float:left;line-height:50px;padding-left:5px;}
+.productMenu li h1{float:left;line-height:50px;padding-left:5px;font-size: 18px}
+
 .hulianJie{background:url(/static/images/hulianJie.png) no-repeat;}
 .wulianJie{background:url(/static/images/wulianJie.png) no-repeat;}
 .hulianPro{background:url(/static/images/hulianPro.png) no-repeat;}
 .wulianPro{background:url(/static/images/wulianPro.png) no-repeat;}
+.otherPro{background:url(/static/images/wulianPro.png) no-repeat;}
 .zhiyouIcon{background:url(/static/images/zhiyouIcon.png) no-repeat;}
-.productMenu li.select span.hulianJie,.productMenu li.select .wulianJie,.productMenu li.select .hulianPro,.productMenu li.select .wulianPro,.productMenu li.select .zhiyouIcon{background-position:0 -50px;}
+
+.productMenu li.select span.hulianJie,.productMenu li.select .wulianJie,.productMenu li.select .hulianPro,.productMenu li.select .wulianPro,.productMenu li.select span.otherPro,.productMenu li.select .zhiyouIcon{background-position:0 -50px;}
 .productMenu li:hover{color:#e08900;}
-.yingyong{background:url(/static/images/yingyong.png) no-repeat;height:528px;width:762px;margin:auto;}
+.yingyong{background:url(/static/images/yingyong.png) no-repeat;height:528px;width:1000px;margin:auto;}
+.yunwei{background:url(/static/images/yunwei.png) no-repeat;height:528px;width:1000px;margin:auto;}
+
 .tixiTitle{font-size:30px;clear:both;line-height:76px;padding-left:90px;padding-bottom:10px;}
 .tongxingNet{background:url(/static/images/tongxingNet.png) no-repeat;}
 .dianliNet{background:url(/static/images/dianliNet.png) no-repeat;}
