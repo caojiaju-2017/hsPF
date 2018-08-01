@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新闻详情</title>
+<link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+<script type="text/javascript" src="/static/js/jquery-1.7.1.js" ></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
+<style type="text/css">
+	.newsDetail2{width:940px;margin:30px auto 100px auto;}
+	.newsDetail2 p{line-height:40px;}
+	.newsDetail2 img{max-width:100%;overflow:hidden;}
+</style>
+</head>
+
+
+<body>
+
+<div class="headDiv">
+    <div class="logo" onClick="window.location='index.html'"></div>
+    <ul class="headMenu">
+	    		<li onClick="window.location='index.html'" class="">首 页</li>
+	    		<li onClick="window.location='about.html'" class="">关于NAK</li>
+	    		<!-- 选中菜单 -->
+	    		<li onClick="window.location='news.html'" class="select">公司新闻</li>
+	    		<li onClick="window.location='product.html'" class="">产品中心</li>
+	    		<li onClick="window.location='service.html'" class="">服务专区</li>
+	    		<li onClick="window.location='hr.html'" class="">人力资源</li>
+	    		<li onClick="window.location='contect.html'" class="">联系我们</li>
+    </ul>
+</div>
+
+<div class="newsDiv">
+	<div class="newsPosition">
+    	
+    	<a onClick="window.location='../news4_1.html'">成功故事 > </a>
+    	<h1> 新闻详情</h1>
+    </div>
+</div>
+
+<div class="newsDetail2">
+	<h1 style="font-size:24px;font-weight:bold;">传媒大学“创意云”——这里有你的好莱坞梦</h1>
+    <span style="color:#9fa0a0;font-size:16px;display:block;margin:10px 0;width:100%;text-align:right;">2013-11-25</span>
+    <div><p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	还能回忆起云计算刚刚出现时我们对云的描述吗？使用云像使用自来水和电一样，只要按需付费，无需自己搭建水电供应系统……经过几年的云里雾里，云终于来到了我们身边，很多个人已经开始使用各种各样的云服务，如邮箱、云盘等等。中国传媒大学高性能计算中心主任鲁永泉博士则是为影视动漫创作者提供了一个创作平台——“创意云”。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	中国传媒大学高性能计算中心主任鲁永泉
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	鲁博士表示，“其实刚开始传媒大学在做创意云时，想法非常简单，但当我们真正把关注点从科学计算转移到传媒行业、游戏和动漫影视时，我们发现这是一个非常大的市场。”大家在日常生活中看的各种电影的特效等，在渲染时背后会有上千台服务器同时进行支持，但如果电影拍完了，这些设备闲置的话就造成了巨大的浪费。对于更多的中小创造团队来说，更是无法支持高昂的设备费用。 创意云，就是解决以上这些问题的极好的平台。经过发展，创意云应不仅仅是创作的平台，还根据市场需要，增加了很多新的服务项目。从源头开始说起，创意云首先是一个订单来源，各个公司企业和个人都可以将自己的需求发布到云平台上，可以和创意团队“谈生意”。有了订单之后，便可以开始创作。无论是计算资源、初始素材还是创作软件都可以从云上获取。如果项目有点大，人手不够怎么办，别急，创意云上有“虚拟工作室”，可以进行人才招聘，临时充实自己的团队。如果大家不在同一城市怎么办？创意云上还有“虚拟会议室”，大家可以进行视频会议，共同探讨创作项目。在创作完成后，可以利用创意云的计算能力进行作品的渲染。作品完成后，未能进行销售的还可以进入素材库，随时产生价值。可以说，创意云是一个非常完备的体系。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	这样一个完备体系的背后，需要的是高性能运算能力和超强的稳定性。据鲁永泉博士介绍，创意云的基础架构中存储产品采用了戴尔MD3200产品，实现可扩展性，并在其上面构建了一个并行存储系统。网络方面，创意云采用了40GB的IB网络和一个千兆网络，二者各有分工。系统之间，数据层面的互联互通都是通过IB网络来完成的。相互之间的管理职责，控制数据是通过千兆网完成的。在此之上就是服务器系统，分为三大子系统。一是虚拟化应用子系统，玛雅、3D这样的游戏引擎等都跑在虚拟化应用子系统上，这个子系统有非常强的图形处理能力，采用的是戴尔最新的12G服务器R720，R720能够很好的支持CPU和GPU的混合运算。第二个子系统是渲染子系统，是一个计算密集型、CPU密集型系统，因为就目前主流的商用和渲染器来讲，大多数都是采用基于CPU进行运算的，而不是GPU。第三个部分主要是针对整个创意云本身的管理和服务的支撑，这部分基本上还是采用传统的CPU。 2013年8月，创意云的线上部分已经开始运营，迄今为止已经有11万注册用户，并与海外市场签订了很多云平台合作使用订单。在未来，我们可能看到更多的好莱坞大片在这个平台上生产出来，也许你的好莱坞梦也能在这里实现。
+</p></div>
+    
+</div>
+
+<iframe frameborder="0" class="footerFrame" scrolling="no" src="../footer.html"></iframe> 
+<div class="gotoTop" title="回到顶部"></div>
+
+</body>
+</html>

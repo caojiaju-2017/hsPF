@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新闻详情</title>
+<link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+<script type="text/javascript" src="/static/js/jquery-1.7.1.js" ></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
+<style type="text/css">
+	.newsDetail2{width:940px;margin:30px auto 100px auto;}
+	.newsDetail2 p{line-height:40px;}
+	.newsDetail2 img{max-width:100%;overflow:hidden;}
+</style>
+</head>
+
+
+<body>
+
+<div class="headDiv">
+    <div class="logo" onClick="window.location='index.html'"></div>
+    <ul class="headMenu">
+	    		<li onClick="window.location='index.html'" class="">首 页</li>
+	    		<li onClick="window.location='about.html'" class="">关于NAK</li>
+	    		<!-- 选中菜单 -->
+	    		<li onClick="window.location='news.html'" class="select">公司新闻</li>
+	    		<li onClick="window.location='product.html'" class="">产品中心</li>
+	    		<li onClick="window.location='service.html'" class="">服务专区</li>
+	    		<li onClick="window.location='hr.html'" class="">人力资源</li>
+	    		<li onClick="window.location='contect.html'" class="">联系我们</li>
+    </ul>
+</div>
+
+<div class="newsDiv">
+	<div class="newsPosition">
+    	
+    	<a onClick="window.location='../news3_1.html'">知识分享 > </a>
+    	<h1> 新闻详情</h1>
+    </div>
+</div>
+
+<div class="newsDetail2">
+	<h1 style="font-size:24px;font-weight:bold;">Spark点燃近实时大数据之火</h1>
+    <span style="color:#9fa0a0;font-size:16px;display:block;margin:10px 0;width:100%;text-align:right;">2015-04-01</span>
+    <div><p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	在用户体验达不到所宣传效果之后，IT领域中必然会随之出现“新的热门事件”。目前的新热门事件涉及大数据和对海量分布式数据的快速精准分析。 在目前的大数据领域中，Hadoop被作为存储和分配海量数据的软件，而MapReduce则被作为处理这些海量数据的引擎。两者整合在一起可以批处理一些对时效性没有过高要求的数据。 那么对于近实时大数据分析应当怎么办呢?作为最先进的下一代开源技术Apache Spark已经为视频、传感器、交易等流数据的分析、机器学习、预测建模创造了条件。它们可以用于基因组研究、封包检测、恶意软件探测和物联网。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Spark不仅可像MapReduce那样用于批处理，对于需要与数据集进行大量交互的算法，Spark还可以将这些运算的中间结果存储在缓存中。 相比之下，在带入系统进行下一步处理前，MapReduce必须要将每步运算的结果写入磁盘。这种在内存中对弹性分布式数据集(RDD)的快速处理可以说 是Apache Spark的核心能力。 Salient Federal Solutions公司一直致力于使用Spark为政府机构开发分析产品。该公司预测分析主任Dave Vennergrund称：“一旦执行对数据集的操作，它们能够进行相互连接，从而使得转换能够被迅速完成。加之它们能够同时跨多台机器做这一工作，这使 得我们能够迅速做出反应。” Spark的支持者认为，与竞争对手相比，Spark在扩展性和速度方面都具有优势。突出表现为在小数据集升级为拍字节后，它们仍然能够出色地工 作。在2014年11月份的基准竞赛中，Apache Spark整理100太字节数据的速度比Hadoop MapReduce快了三倍，并且其机器集群的规模是MapReduce的十分之一。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	据软件开发公司Typesafe近期观察显示，对Spark感兴趣的机构在数量上正在不断增长。数据显示，目前13%的受访者正在使用Spark， 约30%的受访者正在对Spark进行评估，20%的受访者计划在今年某一时候开始使用Spark。另有6%的受访者希望在2016年或更晚时候使用 Spark。此外，28%的受访者还对Spark不了解，认为它们还不成熟。 Salient 的数据分析中心副总裁Cindy Walker称：“对于政府来说，他们正在进行测试与评估。早期部署者都是那些有沙盒和研发预算的部门。我们的许多客户现在对大数据部署、内存分析、流解 决方案都还没有划定能力底线。因此，我们目前正在使用Spark帮助他们设定合理的目标。”
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	虽然Spark还无法取代MapReduce，但是它们最终将成为大数据分析领域的一部分，推动数据被以更快的速度处理。 Apache Spark生态环境有以下几个组成部分：
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Spark Core：平台的底层执行引擎，支持大量应用以及Java、Scala和Python等应用程序接口(API)。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Spark SQL(结构化查询语言) ：用户可通过其探究数据。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Spark Streaming：可对来自推特的流数据进行分析，并且让Spark具备批处理能力。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	机器学习库 (MLlib)：一种分布式机器学习架构，交付高质量算法的速度比MapReduce快100倍。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Graph X：帮助用户以图形的形式表现文本和列表数据，找出数据中的不同关系。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	SparkR：针对R统计语言的程序包。R用户可通过其在R壳中使用Spark功能。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	BlinkDB：大型并行引擎。允许用户对海量数据执行类SQL查询，在速度重要性高于精确性的情况下非常有用。
+</p></div>
+    
+</div>
+
+<iframe frameborder="0" class="footerFrame" scrolling="no" src="../footer.html"></iframe> 
+<div class="gotoTop" title="回到顶部"></div>
+
+</body>
+</html>

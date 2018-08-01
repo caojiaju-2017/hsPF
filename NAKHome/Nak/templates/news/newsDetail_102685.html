@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新闻详情</title>
+<link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+<script type="text/javascript" src="/static/js/jquery-1.7.1.js" ></script>
+<script type="text/javascript" src="/static/js/main.js" ></script>
+<style type="text/css">
+	.newsDetail2{width:940px;margin:30px auto 100px auto;}
+	.newsDetail2 p{line-height:40px;}
+	.newsDetail2 img{max-width:100%;overflow:hidden;}
+</style>
+</head>
+
+
+<body>
+
+<div class="headDiv">
+    <div class="logo" onClick="window.location='index.html'"></div>
+    <ul class="headMenu">
+	    		<li onClick="window.location='index.html'" class="">首 页</li>
+	    		<li onClick="window.location='about.html'" class="">关于NAK</li>
+	    		<!-- 选中菜单 -->
+	    		<li onClick="window.location='news.html'" class="select">公司新闻</li>
+	    		<li onClick="window.location='product.html'" class="">产品中心</li>
+	    		<li onClick="window.location='service.html'" class="">服务专区</li>
+	    		<li onClick="window.location='hr.html'" class="">人力资源</li>
+	    		<li onClick="window.location='contect.html'" class="">联系我们</li>
+    </ul>
+</div>
+
+<div class="newsDiv">
+	<div class="newsPosition">
+    	
+    	<a onClick="window.location='../news3_1.html'">知识分享 > </a>
+    	<h1> 新闻详情</h1>
+    </div>
+</div>
+
+<div class="newsDetail2">
+	<h1 style="font-size:24px;font-weight:bold;">Browser-Sync：响应式Web开发调试利器</h1>
+    <span style="color:#9fa0a0;font-size:16px;display:block;margin:10px 0;width:100%;text-align:right;">2014-02-25</span>
+    <div><p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	快速的移动Web开发模式，是我们团队一直在探索的一项内容。今天给大家介绍一种高效的开发方式，在开始内容前，我们先了解与分析一下目前主流开发模式的现状（本文聚焦响应式Web开发，这里主要指页面重构的工作）。 传统的PC模式 相信很多开发者还停留在使用PC调试的阶段，即在PC浏览器内调试好页面后，再到手机终端进行测试。 优势：这种开发模式基本没有优势可言，此行仅当占位符。。 缺点：我们知道，PC与手机终端上的表现并不是完全如一的，PC浏览器中看着完美的页面到手机中可能还是存在瑕疵，这时在手机微调的工作就显得非常繁琐了，因为要不断的修改源文件与刷新手机页面。另外，当你面对多个移动设备时，你的工作会更加耗时，并且一团糟。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	远程调试模式 不少开发者也应该接触过weinre（WEb INspector REmote），一个很强大的开发调试工具，支持CSS、JS log、Timeline等功能。此外还有不少远程调试工具，不久前我曾翻译过addy osmani的文章，跨设备的移动端同步化测试，里面也介绍了不少有用的工具。 优势：各类远程调试工具各有专攻，有些脚本调试功能还是很优秀的。 缺点：多数工具有一个问题，就是并不支持所有平台与设备，而且配置工作稍显复杂。另外针对响应式开发，很多工具并未做考虑。上次的文章中介绍的Ghostlab是一款不错的工具，但是需要购买商业授权，还是有些不方便。 当响应式开发遇上调试 响应式设计这个概念，应该说从智能终端普及的时候就开始进入开发者的视线了。简单地说，响应式设计是使用CSS的Media Query，为不同分辨率的设备编写不同的样式，从而达到一个页面在多个尺寸设备下展现最好的体验。虽然说主流的响应式设计主要是兼容PC、平板、手机等设备，但单从手机来看就已经各种差异了，所以为了高效省时地进行响应式开发，我们希望可以同时在所有设备上看到效果。更多地，如果能同步进行操作（点击、滚动等）那必是极好的~
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	Browser-Sync 今天介绍的 Browser-Sync 工具就是一款非常强大的工具，跨平台并且是免费开源的（基于MIT）！Github传送门。 同步，是Browser-Sync最基本的功能，它可以跨设备同步操作行为，如滚动、点击、导航，以及填写表单。 于此同时，Browser-Sync更大的亮点在于： ?CSS注入。Browser-Sync可以watch你的CSS文件，当CSS文件有变更时，它可以动态注入到页面中，而不用将整个页面刷新一遍。 ?实时刷新。同样是watch源文件，可以在文件修改时，刷新所有设备中的页面。 ?静态server。可以在本地架设静态资源的服务器。 ?更多地，Browser-Sync还有grunt插件，集成到你的开发流程中。 更多的使用细节，可以查看Github上的文档与示例。
+</p>
+<p style="font-size:16px;text-align:justify;text-indent:2em;color:#3E3A39;font-family:微软雅黑, Arial, Helvetica, sans-serif;background-color:#FFFFFF;">
+	搭配Chrome Workspace 上面介绍到，Browser-Sync的一大亮点在于可以CSS注入，即对css文件的编辑修改可以动态注入到所有设备中。搭配Chrome的Workspace功能，效率可以进一步提升！ Workspace是Chrome DevTools的一项功能，现在已加入到Chrome stable版本。Workspace可以将Chrome中的网络资源与本地资源进行映射与同步，即在Chrome中对CSS的修改可以同步写到本地css文件中。 这样一来，我们在Chrome中对CSS进行编辑，实时的编辑修改会同步到本地的css文件中，随之触发Browser-Sync的watch功能，这样样式的修改便会自动注入到所有的设备中了。 关于Workspace的设置这里就不详述了，可以参考官方的设置指引，或者访问ISUX的博客文章。 可以说Browser-Sync是一款很有潜力的工具，虽然现在它还是个命令行工具，但开发者也在计划集成更多的调试工具，如 Weinre 和 Chrome DevTools。
+</p></div>
+    
+</div>
+
+<iframe frameborder="0" class="footerFrame" scrolling="no" src="../footer.html"></iframe> 
+<div class="gotoTop" title="回到顶部"></div>
+
+</body>
+</html>
