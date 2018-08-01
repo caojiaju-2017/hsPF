@@ -384,7 +384,7 @@ div.slidertextright{position:absolute;bottom:0;float:left;width:100%;}
 .servicePro li h1{font-size:24px;}
 .servicePro li p{color:#595757;}
 .serviceJie{background:url(/static/images/serviceJie.png) no-repeat;width:710px;height:456px;margin:20px auto;}
-.telephoneIcon{background:url(/static/images/telephoneIcon.png) no-repeat;padding-left:60px;font-size:24px;margin:0 auto;line-height:51px;width:360px;margin:50px auto 100px auto;}
+.telephoneIcon{background:url(/static/images/telephoneIcon.png) no-repeat;padding-left:60px;font-size:24px;margin:0 auto;line-height:51px;width:500px;margin:50px auto 100px auto;}
 /*联系我们*/
 .phone{float:left;background:url(/static/images/contectBg.png) no-repeat;width:256px;height:260px;padding:50px 0 0 40px;margin-left:10px;}
 .phone li{color:#fff;line-height:40px;font-size:16px;}
