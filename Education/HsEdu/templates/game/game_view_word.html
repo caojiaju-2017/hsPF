@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+{#    <script src="/static/js/public/pronunciation.js"></script>#}
+    <script src="/static/js/game/game_view_word.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/game/game.css" media="all">
+</head>
+
+<body onload="$.initIcon({{ havePre }},{{ haveNext }})">
+
+<div class="container-fluid" style="">
+    <div class="list-group" id="res_item_div">
+        <a class="list-group-item row"
+           style="padding-left: 0px;padding-right: 0px;background-color: transparent;width: 90%;margin-left: 5%;border: transparent;font-size: 48px;margin-top: 30px">
+
+            <div class="col-xs-4 col-sm-4 col-md4 img text-center"
+                 style="color: #ffffff;height: 100px;line-height: 100px">
+                拼写错误
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md6 img text-center" id="error_spell"
+                 style="color: #1b6d85;background-color: white; border-radius: 15px;height: 100px;line-height: 100px;">
+                {{ mykey }}
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md2 img text-center" onclick="$.readWord('{{ wcode }}')"
+                 style="color: #ffffff;height: 100px;line-height: 100px">
+                <img src="/static/Images/game/sound_white.png" style="width: 80px;height: 80px">
+
+                <audio class="skPlayer-source" controls preload="auto" hidden><source src="" type="audio/mpeg"></audio>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<div style="width: 100%;height: 1px;background-color: whitesmoke;margin-top: 20px"></div>
+
+<div class="word_card" id="word_card" style="font-size: 36px;">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#base" data-toggle="tab">基础释义</a>
+        </li>
+{#        <li><a href="#netmeans" data-toggle="tab">网络释义</a></li>#}
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="base" style="font-size: 48px">
+
+{#            正确拼写#}
+            <div style="width: 100%">
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center"
+                     style="color: #797979;height: 100px;line-height: 100px">
+                    正确拼写
+                </div>
+
+                <div class="col-xs-7 col-sm-7 col-md7 img text-left" id="right_spell"
+                     style="color: #1b6d85;background-color: white; border-radius: 15px;height: 100px;line-height: 100px;">
+                    <u style="color: #8c8c8c">{{ wcode }}</u> &nbsp; &nbsp;  {{ pron }}
+                </div>
+
+            </div>
+
+
+{#            单词含义#}
+            <div style="width: 100%">
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center"
+                     style="color: #797979;height: 100px;line-height: 100px">
+                    单词含义
+                </div>
+
+                <div class="col-xs-8 col-sm-8 col-md8 img text-left" id="word_meaning"
+                     style="color: #985f0d;background-color: white; border-radius: 15px;height: 200px;font-size: 36px;overflow:auto;padding-bottom: 20px">
+                    {{ meaning | safe}}
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md12 img text-center" style="height: 20px"></div>
+{#            单词造句#}
+            <div style="width: 100%">
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center"
+                     style="color: #797979;height: 100px;line-height: 100px">
+                    组词造句
+                </div>
+
+                <div class="col-xs-8 col-sm-8 col-md8 img text-left" id="word_sentence"
+                     style="color: #4a4a4a;background-color: white; border-radius: 15px;height: 100px;font-size: 36px;overflow:auto">
+                    {{ sentence | safe}}
+                </div>
+
+            </div>
+        </div>
+{#        <div class="tab-pane fade" id="netmeans">#}
+{#            <iframe style="width: 100%;height: 100%">#}
+{##}
+{#            </iframe>#}
+{#        </div>#}
+    </div>
+</div>
+
+
+
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container-fluid" style="">
+        <div class="list-group" id="res_item_div">
+            <a class="list-group-item row"
+               style="padding-left: 0px;padding-right: 0px;background-color: transparent;width: 90%;margin-left: 5%;border: transparent;font-size: 48px;margin-top: 30px">
+
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center" onclick="$.getIPreWord('{{ wcode }}')"
+                     style="color: #ffffff;height: 100px;line-height: 100px">
+                    {% if havePre < 0 %}
+                        <img src="/static/Images/game/preview_0.png"  id="btnprev" style="width: 80px;height: 80px">
+                    {% else %}
+                        <img src="/static/Images/game/preview.png"  id="btnprev" style="width: 80px;height: 80px">
+                    {% endif %}
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center" onclick="$.iRemeber('{{ wcode }}')"
+                     style="color: #ffffff;height: 100px;line-height: 100px">
+                    <img src="/static/Images/game/remember.png" style="width: 80px;height: 80px">
+                </div>
+
+                <div class="col-xs-4 col-sm-4 col-md4 img text-center"onclick="$.getINextWord('{{ wcode }}')"
+                     style="color: #ffffff;height: 100px;line-height: 100px">
+
+                    {% if haveNext < 0 %}
+                        <img src="/static/Images/game/next_0.png"  id="btnnext" style="width: 80px;height: 80px">
+                    {% else %}
+                        <img src="/static/Images/game/next.png"  id="btnnext" style="width: 80px;height: 80px">
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <img src="/static/Images/game/back.png" class="back_image_error_book" onclick="$.goBackPage()">
+    </div>
+</footer>
+</body>
+</html>

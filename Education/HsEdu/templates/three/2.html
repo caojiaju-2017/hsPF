@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>园</title>
+    <script src="/static/js/three/three.js"></script>
+    <script src="/static/js/three/extra/controls/OrbitControls.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/MTLLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/LoaderSupport.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader2.js"></script>
+    <script src="/static/js/three/extra/utils/SceneUtils.js"></script>
+{#    <script src="/static/js/three/extra/loaders/OBJMTLLoader.js"></script>#}
+</head>
+<body onload="main()">
+{#    <audio src="/static/data/music.mp3" autoplay loop></audio>#}
+    <script>
+        function main() {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,1,1000);
+            var renderer = new THREE.WebGLRenderer();
+
+            camera.position.set(-20,30,40);
+            camera.lookAt((new THREE.Vector3(10,0,0)));
+            renderer.setClearColor(new THREE.Color(0xfefefe,1.0));
+            renderer.setSize(window.innerWidth,window.innerHeight);
+{#            renderer.shadowMapEnabled = true;#}
+
+            var circle = createMesh(new THREE.CircleGeometry(4,10,0.2*Math.PI,0.3*Math.PI));
+            scene.add(circle);
+            // 创建一个二维元
+            function createMesh(gemo) {
+                var meshMaterial = new THREE.MeshNormalMaterial();
+                var basicMater = new THREE.MeshBasicMaterial();
+                basicMater.wireframe = true;
+                return THREE.SceneUtils.createMultiMaterialObject(gemo,[meshMaterial,basicMater]);
+            }
+{#            var plane = createMesh(new  THREE.PlaneGeometry(12,15,10,15));#}
+{#            scene.add(plane);#}
+
+            var spotLigth = new THREE.SpotLight(0XFFFF01);
+            spotLigth.position.set(-40,60,-10);
+            scene.add(spotLigth);
+
+            // 绘制
+            function render() {
+                circle.rotation.x += 0.01;
+                circle.rotation.z += 0.01;
+                requestAnimationFrame(render);
+                renderer.render(scene,camera);
+            }
+
+            document.body.appendChild(renderer.domElement);
+            render();
+        }
+    </script>
+</body>
+</html>

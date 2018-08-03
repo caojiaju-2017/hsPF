@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资源详情</title>
+    <meta name="viewport" content="user-scalable=no">
+    <link href="http://vjs.zencdn.net/5.0.2/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.0.2/video.js"></script>
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/home/res/res.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/home/res/res_detail.css" media="all">
+</head>
+<style>
+    .panel-body {
+        font-size: 16px;
+    }
+
+</style>
+{#@media (min-width: 768px) {#}
+{#.panel-body {#}
+{#font-size:47px;#}
+{#}#}
+{#｝#}
+<body>
+<script type="text/javascript">
+    $(function () {
+        /***用户点击分享到微信圈后加载接口接口****------***/
+        var url = window.location.href.split('#')[0];
+        url = url.replace(/&/g, '%26');
+        console.log("url:" + url);
+        $.ajax({
+            url: "http://www.h-sen.com/shareToFriend/?url=" + url,
+            type: "POST",
+            async: true,
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                {#                alert("success1 appId = " + data.appId);#}
+                {#                alert("success1 timeStamp = " + data.timeStamp);#}
+                {#                alert("success1 nonceStr = " + data.nonceStr);#}
+                {#                alert("success1 signature = " + data.signature);#}
+
+                wx.config({
+                    debug: false,
+                    appId: data.appId,
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+                    //wx.hideOptionMenu();/***隐藏分享菜单****/
+                    wx.checkJsApi({
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ],
+                        success: function (res) {
+                            //alert(res.errMsg);
+                        }
+                    });
+
+                    wx.onMenuShareAppMessage({
+                        title: data.title,
+                        desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                            //分享之后增加游戏次数
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+
+                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+                    wx.onMenuShareTimeline({
+                        title: data.title,
+                        //desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.onMenuShareQQ({
+                        title: data.title, // 分享标题
+                        desc: data.context, // 分享描述
+                        link: data.url, // 分享链接
+                        imgUrl: data.image, // 分享图标
+                        success: function () {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.error(function (res) {
+                        {#                               alert(res.errMsg);#}
+                    });
+                });
+            },
+            error: function () {
+                {#                        alert('ajax request failed!!!!');#}
+                return;
+            }
+        });
+    });
+
+
+</script>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+     style="height: 200px;background-image: url('/static/Images/background.png')">
+    <div class="container-fluid">
+        <div class="list-group" style="height: 600px">
+            <video src="http://19e237597p.iok.la:8081/media/video/2.mp4" controls="controls" id="example_video_1" class="video-js vjs-default-skin"
+                   autoplay="false" id="v_video" preload='no' style="width: 100%;height: 100%">
+             </video>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="margin-top: 640px">
+    <div class="list-group" style="font-size: 2em">
+        <a class="list-group-item row" style="">
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: center;font-size: xx-large">
+                XXX资源目录
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: center;font-size: xx-large">
+                XXX机构荣益出品
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: center;font-size: xx-large;color: #c7254e">
+                1092元
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: xx-large">
+            资源介绍
+        </h3>
+    </div>
+    <div class="panel-body" style="">
+        首先说iPhone，不得不说iPhone的屏幕考虑到了我们开发者的难处，从而给出iPhone屏幕的dpr都是整数值，在6plus出现之前，iphone的dpr始终是2（物理像素/逻辑像素＝2），即使是6plus出现了，iphone到底其实也就只有2，3这两个dpr。其实6plus的实际dpr并不是整数，而是2.87左右，不过，为了方便开发者来开发，iphone6plus对其做了一个调整，将dpr调整为3，然后在对屏幕进行了一个缩放。所以我们很容易对其做到兼顾。
+    </div>
+</div>
+
+<div style="width: 100%;height: 5px;background-color: #0c8a90"></div>
+
+<ul class="list-group" style="">
+    {% for msgValue in Res_Datas %}
+        <li class="list-group-item" style="font-size: 3em;height: 120px;line-height: 100px"
+            onclick="$.openResource('aaa')" href="#">
+            <span class="badge"
+                  style="font-size: 1.1em;position: relative;top: 50%;transform: translateY(-50%);">视频资源</span>
+            第{{ msgValue }}章：环境搭建
+        </li>
+
+    {% endfor %}
+</ul>
+
+{#<div id="win">#}
+{#        <div id="title">我是标题栏！<span id="close" onclick="hide()">X</span></div>#}
+{#        <div id="content">我是一个窗口！</div>#}
+{#    </div>#}
+
+<div data-role="widget" data-widget="nav4" class="nav4">
+    <nav>
+        <div id="nav4_ul" class="nav_4">
+            <ul class="box">
+                <li id="abc1">
+                    <a href="tel:+15680585185"><span>联系</span></a>
+                </li>
+                <li id="abc2">
+                    <a onclick="$.buyResource('{{ Res_Code }}')"><span>购买</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

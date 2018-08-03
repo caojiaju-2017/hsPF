@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/js/game/gamming.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/game/game.css" media="all">
+</head>
+
+<body onload="$.windowLoading('{{ unitcode }}')" style="background-color: whitesmoke">
+<div class="input_title" id="input_title"><img src="/static/Images/game/back.png" onclick="$.backspaceLetter()" style="width: 80px;height: 80px;margin-top: 20px;float: right;margin-right: 20px"></div>
+
+<div id="canvas_pannel" class="canvas_pannel" style="background:url('/static/Images/game/gamming_bak.jpg');background-size:100%;">
+
+    <div class="item_column" style="">
+        <div class="word_div" id="word_1_0" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_1" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_2" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_3" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_4" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_5" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_6" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_1_7" onclick="$.clickLetter()"></div>
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_2_0" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_1" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_2" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_3" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_4" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_5" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_6" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_2_7" onclick="$.clickLetter()"></div>
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_3_0" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_1" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_2" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_3" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_4" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_5" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_6" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_3_7" onclick="$.clickLetter()"></div>
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_4_0" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_1" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_2" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_3" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_4" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_5" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_6" onclick="$.clickLetter()"></div>
+        <div class="word_div" id="word_4_7" onclick="$.clickLetter()"></div>
+    </div>
+</div>
+
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container">
+        <div style="" class="seprator_line"></div>
+
+        <div class="control_div">
+            <div class="left_control" id="left_control"></div>
+            <div class="right_control">
+                <div class="stop_icon" onclick="$.terminalTest()">
+                    <img src="/static/Images/game/stop.png" style="width: 100px;height: 40px;margin-top: 30px">
+                </div>
+                <div class="voice_ctrl" onclick="$.playSound()">
+                    <img src="/static/Images/game/sound_white.png" style="width: 60px;height: 60px;margin-top: 20px">
+                </div>
+                <div class="switch_ctrl" id="switch_ctrl" onclick="$.goNext()">
+                    <img src="/static/Images/game/next.png" id="next_button" style="width: 60px;height: 60px">
+                </div>
+                <audio class="skPlayer-source" controls preload="auto" hidden><source src="" type="audio/mpeg"></audio>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

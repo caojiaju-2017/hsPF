@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>第一步：基础信息</title>
+
+    <link rel="stylesheet" href="/static/jquery/mobile/jquery.mobile-1.4.5.min.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/jquery/mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/myschool/step1.js"></script>
+
+    <script src="/static/threePart/distpicker/distpicker.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/myschool/step1.css" media="all">
+
+</head>
+<body>
+
+<div class="step1_body" id="step1_body">
+
+    {#    头像#}
+    <div style="margin-top:20px;width: 180px;height: 180px;background-image: url('/static/Images/default.png');background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"
+         id="head_img"></div>
+
+    <div data-role="main" class="ui-content" style="width: 80%;margin-left: 10%;padding: 0px;margin-top: 40px">
+        <div class="ui-field-contain" style="padding: 0px">
+            <input type="text" name="fullname" id="fullname" placeholder="请输入您的名字.." data-clear-btn="true" style="width: 100%;font-size: 36px">
+            <input type="text" name="phoneId" id="phoneId" placeholder="请输入手机号.." data-clear-btn="true" style="width: 100%;font-size: 36px">
+            <input type="email" name="email" id="email" placeholder="请输入邮箱.." data-clear-btn="true" style="width: 100%;font-size: 36px">
+        </div>
+    </div>
+
+    <form class="form-inline mt-2 mb-4">
+    <div data-toggle="distpicker" data-autoselect="3" style="width: 80%;margin-left: 10%;font-size: xx-large;height: 100px;margin-top: 40px">
+      <select data-province="---- 选择省 ----" style=";font-size: larger;height: 100px;margin-top: 10px" id="province"></select>
+      <select data-city="---- 选择市 ----" style=";font-size: larger;height: 100px;margin-top: 30px" id="city"></select>
+      <select data-district="---- 选择区 ----" style=";font-size: larger;height: 100px;margin-top: 30px" id="zone"></select>
+    </div>
+</form>
+</div>
+
+<div class="next_step" id="next_step" style="cursor: pointer" onclick="$.goNext()">
+    下一步
+</div>
+
+</body>
+</html>

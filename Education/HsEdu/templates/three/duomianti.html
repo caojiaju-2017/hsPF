@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多媒体</title>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/three/three.js"></script>
+    <script src="/static/js/three/extra/controls/OrbitControls.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/MTLLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/LoaderSupport.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader2.js"></script>
+    <script src="/static/js/three/extra/utils/SceneUtils.js"></script>
+{#    <script src="/static/js/three/extra/loaders/OBJMTLLoader.js"></script>#}
+</head>
+<body onload="main()">
+{#    <audio src="/static/data/music.mp3" autoplay loop></audio>#}
+    <script>
+        function main() {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,.1,1000);
+            var renderer = new THREE.WebGLRenderer();
+
+            // 配置相机
+            camera.position.set(-20,30,40);
+            camera.lookAt((new THREE.Vector3(10,0,0)));
+
+            // 配置渲染器
+            renderer.setClearColor(new THREE.Color(0xe0eeee,1.0));
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            renderer.shadowMapEnabled = true;
+
+            var vertices = [
+                1,1,1,
+                -1,-1,1,
+                -1,1,-1,
+                1,-1,-1];
+
+            var faces = [
+                2,1,0,
+                0,3,2,
+                1,3,0,
+                2,3,1
+            ]
+            var ploye = createMesh(new THREE.PolyhedronGeometry(vertices,faces,10));
+            scene.add(ploye);
+
+            // 创建一个二维元
+            function createMesh(gemo) {
+                var meshMaterial = new THREE.MeshNormalMaterial();// baxiang材质
+                var basicMater = new THREE.MeshBasicMaterial();
+                basicMater.wireframe = true;
+                return THREE.SceneUtils.createMultiMaterialObject(gemo,[meshMaterial,basicMater]);
+            }
+            var spotLigth = new THREE.SpotLight(0Xffffff);
+            spotLigth.position.set(-40,55,-11);
+            scene.add(spotLigth);
+
+            // 绘制
+            function render() {
+                ploye.rotation.x += 0.01;
+{#                circle.rotation.z += 0.01;#}
+                requestAnimationFrame(render);
+                renderer.render(scene,camera);
+            }
+            var controls=new THREE.OrbitControls(camera);
+            controls.addEventListener('change', render);
+        
+            $('#webgl').append(renderer.domElement);
+            render();
+        }
+    </script>
+<div id="webgl"></div>
+<div id="controller" style="position: fixed;right: 0px;top: 0px">
+    <button id="sphere">sphere</button>
+    <button id="cylinder">cylinder</button>
+    <button id="torus">torus</button>
+    <button id="knot">knot</button>
+</div>
+</body>
+</html>

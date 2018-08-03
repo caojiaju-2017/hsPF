@@ -1,0 +1,52 @@
+.container{
+				font-size: 16px;
+			}
+			.img img{
+				width: 70%;
+			}
+			.title{
+				font-size: 25px;
+				font-weight: bold;
+				margin-bottom:15px;
+			}
+			.content{
+				width: 300px;
+	            overflow: hidden;/*超出部分隐藏*/
+	            white-space: nowrap;/*不换行*/
+	            text-overflow:ellipsis;/*超出部分文字以...显示*/
+			}
+			@media only screen and (max-width:767px){
+				.container{
+					font-size: 14px;
+				}
+				.img img{
+					width: 65px;
+				}
+				.title{
+					font-size: 18px;
+				}
+				.content{
+					width:150px;
+				}
+
+			}
+			@media only screen and (max-width:359px){
+				.container{
+					font-size: 12px;
+				}
+				.img img{
+					width: 60px;
+				}
+				.title{
+					width: 122px;
+					font-size: 16px;
+					margin-bottom:10px;
+				}
+				.content{
+					width:150px;
+				}
+				.time{
+					width: 200px;
+				}
+			}
+

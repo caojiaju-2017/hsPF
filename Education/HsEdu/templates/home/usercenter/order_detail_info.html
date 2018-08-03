@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取资源</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+</head>
+<body style="background-image: url('/static/Images/background.png');background-size: 100% 100%;background-repeat:no-repeat;">
+{#  引入公共js  #}
+<script src="/static/js/public/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+
+
+{#  商务人士---微信二维码  #}
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="list-group">
+
+        <div class="col-xs-12 col-sm-12 col-md12" style="text-align: center">
+            <a style="color: #0c8a90">
+                <img src="/static/Images/thanks.jpg" width="100%" height="100%">
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 30px;">
+    <div class="list-group" onclick="$.copyToCliboard('{{  BaiduNetUrl }}','{{  BaiduNetUrlPswd }}')">
+        <div class="col-xs-12 col-sm-12 col-md12" style="font-size: 20px;background-color: #0c8a90;color: #f2f2f2;height: 40px;line-height: 40px;border-radius: 10px">
+            资源获取途径
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px;margin-top: 10px">
+            百度网盘：
+        </div>
+           <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px;margin-top: 10px">
+            {{  BaiduNetUrl }}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px;margin-top: 10px">
+            网盘密码：{{  BaiduNetUrlPswd }}
+        </div>
+         
+    </div>
+</div>
+
+{#  其他联系方式  #}
+<div class="container-fluid" style="margin-top: 30px;margin-bottom: 40px;">
+    <div class="list-group">
+        <div class="col-xs-12 col-sm-12 col-md12" style="font-size: 20px;background-color: #0c8a90;color: #f2f2f2;height: 40px;line-height: 40px;border-radius: 10px">
+            如果您碰到问题，请与我们联系
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;margin-top: 10px">
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: right">
+            商务电话：
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md8">
+                <a href="tel:{{ SYS_PHONE }}">拨打号码</a> &nbsp;&nbsp;&nbsp;
+                <a href="sms:{{ SYS_PHONE }}">发送短信</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad">
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: right">
+            在线QQ：
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md8">
+            {{ SYS_QQ }}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

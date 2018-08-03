@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.35, maximum-scale=0.35, user-scalable=no">
+    <style>
+        @import url('/static/css/usercenter/my_orders.css');
+    </style>
+    <title>购买记录</title>
+</head>
+<body>
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="/static/js/public/md5.js"></script>
+<script src="/static/js/public/cookie.js"></script>
+<script src="/static/js/usercenter/my_orders.js"></script>
+<script type="text/javascript">
+{#$(document).ready(function(e) {#}
+{#            var counter = 0;#}
+{#            if (window.history && window.history.pushState) {#}
+{#                             $(window).on('popstate', function () {#}
+{#                                            window.history.pushState('forward', null, '#');#}
+{#                                            window.history.forward(1);#}
+{#                                          location.href='./wait.html?hidden=1'#}
+{#                                });#}
+{#              }#}
+{##}
+{#              window.history.pushState('forward', null, '#'); //在IE中必须得有这两行#}
+{#              window.history.forward(1);#}
+{#});#}
+</script>
+<div class="order_div" ID="qx_order_list">
+    {% for oneOrder in My_Orders %}
+        <div class="item_function" onclick="$.viewOrder('{{ oneOrder.goodscode }}')">
+            <div style="width: 100%">
+                <div style="margin-left: 5%;padding-top: 20px;font-size: 2.0em;height: 4pc">订单时间：{{ oneOrder.time }}</div>
+            </div>
+            <div class="seperatoLine"></div>
+            <div style="width: 60%;float: left">
+                <img class="itemLogo" src="/static/Images/ResImage/{{ oneOrder.simpleimage }}">
+                <div class="itemTitle">{{ oneOrder.title }}</div>
+            </div>
+            <div style="width: 36%;float: right;text-align: right;">
+                <img src='/static/Images/right.png' style="width: 32px;height: 30px;margin-top: 80px;margin-right: 30px">
+            </div>
+        </div>
+        <div class="seperatoLine"></div>";
+    {% endfor %}
+</div>
+
+</body>
+</html>

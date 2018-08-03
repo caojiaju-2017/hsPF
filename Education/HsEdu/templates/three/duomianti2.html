@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多媒体</title>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/three/three.js"></script>
+    <script src="/static/js/three/extra/controls/OrbitControls.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/MTLLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/LoaderSupport.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader2.js"></script>
+    <script src="/static/js/three/extra/utils/SceneUtils.js"></script>
+{#    <script src="/static/js/three/extra/loaders/OBJMTLLoader.js"></script>#}
+</head>
+<body onload="main()">
+{#    <audio src="/static/data/music.mp3" autoplay loop></audio>#}
+    <script>
+        var sizeInput = document.querySelector("#size");
+        var z4button = document.querySelector("#z4");
+        var z8button = document.querySelector("#z8");
+        var z20button = document.querySelector("#z20");
+
+        function main() {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,.1,1000);
+            var renderer = new THREE.WebGLRenderer();
+
+            // 配置相机
+            camera.position.set(-20,30,40);
+            camera.lookAt((new THREE.Vector3(10,0,0)));
+
+            // 配置渲染器
+            renderer.setClearColor(new THREE.Color(0xe0eeee,1.0));
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            renderer.shadowMapEnabled = true;
+
+            var mesh = null;
+            var size = 10;
+            var z20 = createMesh(new THREE.IcosahedronGeometry(size)); // 20面体
+            var z4 = createMesh(new THREE.TetrahedronGeometry(size)); // 4面体
+            var z8 = createMesh(new THREE.OctahedronGeometry(size)); // 8面体
+            mesh = z20;
+
+
+
+{#            var ploye = createMesh(new THREE.PolyhedronGeometry(vertices,faces,10));#}
+            scene.add(mesh);
+
+            // 创建一个二维元
+            function createMesh(gemo) {
+                var meshMaterial = new THREE.MeshNormalMaterial();// baxiang材质
+                var basicMater = new THREE.MeshBasicMaterial();
+                basicMater.wireframe = true;
+                return THREE.SceneUtils.createMultiMaterialObject(gemo,[meshMaterial,basicMater]);
+            }
+            var spotLigth = new THREE.SpotLight(0Xffffff);
+            spotLigth.position.set(-40,55,-11);
+            scene.add(spotLigth);
+
+            $("#z4").click(function () {
+                scene.remove(mesh);
+                mesh = sphere;
+                scene.add(mesh);
+            });
+            $("#z8").click(function () {
+                scene.remove(mesh);
+                mesh = sphere;
+                scene.add(mesh);
+            });
+            $("#z20").click(function () {
+                scene.remove(mesh);
+                mesh = sphere;
+                scene.add(mesh);
+            });
+
+            // 绘制
+            function render() {
+{#                ploye.rotation.x += 0.01;#}
+{#                circle.rotation.z += 0.01;#}
+                requestAnimationFrame(render);
+                renderer.render(scene,camera);
+            }
+            var controls=new THREE.OrbitControls(camera);
+            controls.addEventListener('change', render);
+        
+            $('#webgl').append(renderer.domElement);
+            render();
+        }
+    </script>
+<div id="webgl"></div>
+<div id="controller" style="position: fixed;right: 0px;top: 0px">
+    <input type="text" id="size"/>
+    <button id="z4">正四面体</button>
+    <button id="z8">正八面体</button>
+    <button id="z20">正二十面体</button>
+</div>
+</body>
+</html>

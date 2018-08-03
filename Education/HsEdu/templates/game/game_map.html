@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/js/game/game_map.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/game/game.css" media="all">
+</head>
+
+<body onload="$.checkConfig({{ havecfg }})">
+<div class="map_title" id="map_title"></div>
+
+<div style="width: 100%;height: 300px;overflow:auto;" id="middle_tree_cell">
+    {% for oneUnit in units %}
+        <div class="unit_div" onclick="$.startGame('{{ oneUnit.code }}')">{{ oneUnit.name }}</div>
+    {% endfor %}
+</div>
+
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container">
+        <img src="/static/Images/game/back.png" class="back_image" onclick="$.goBackPage()">
+
+        <img src="/static/Images/game/error_book.png" class="save_image" onclick="$.startGame('9999')">
+    </div>
+</footer>
+</body>
+
+</html>

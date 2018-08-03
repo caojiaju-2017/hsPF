@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title> 主页-电脑版 </title>
+    {#    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.35, user-scalable=no">#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css" media="all">
+{#    <link rel="stylesheet" href="/static/css/home/my_message.css"/>#}
+    <link rel="stylesheet" type="text/css" href="/static/css/home/user_center.css"/>
+
+</head>
+
+<body>
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="/static/js/public/JSUtils.js"></script>
+<script src="/static/js/public/cookie.js"></script>
+<script src="/static/js/bootstrap/bootstrap.js"></script>
+<script src="/static/js/home/resource_store.js"></script>
+<script src="/static/js/home/home.js"></script>
+
+{#页面分享代码#}
+{#<script type="text/javascript">#}
+{#    $(function () {#}
+{#        /***用户点击分享到微信圈后加载接口接口****------***/#}
+{#        var url = window.location.href.split('#')[0];#}
+{#        url = url.replace(/&/g, '%26');#}
+{#        console.log("url:" + url);#}
+{#        $.ajax({#}
+{#            url: "http://www.h-sen.com/shareToFriend/?url=" + url,#}
+{#            type: "POST",#}
+{#            async: true,#}
+{#            cache: false,#}
+{#            dataType: "json",#}
+{#            success: function (data) {#}
+                {#                alert("success1 appId = " + data.appId);#}
+                {#                alert("success1 timeStamp = " + data.timeStamp);#}
+                {#                alert("success1 nonceStr = " + data.nonceStr);#}
+                {#                alert("success1 signature = " + data.signature);#}
+{##}
+{#                wx.config({#}
+{#                    debug: false,#}
+{#                    appId: data.appId,#}
+{#                    timestamp: data.timeStamp,#}
+{#                    nonceStr: data.nonceStr,#}
+{#                    signature: data.signature,#}
+{#                    jsApiList: [#}
+{#                        'checkJsApi',#}
+{#                        'onMenuShareTimeline',#}
+{#                        'onMenuShareAppMessage'#}
+{#                    ]#}
+{#                });#}
+{#                wx.ready(function () {#}
+{#                    //wx.hideOptionMenu();/***隐藏分享菜单****/#}
+{#                    wx.checkJsApi({#}
+{#                        jsApiList: [#}
+{#                            'onMenuShareTimeline',#}
+{#                            'onMenuShareAppMessage'#}
+{#                        ],#}
+{#                        success: function (res) {#}
+{#                            //alert(res.errMsg);#}
+{#                        }#}
+{#                    });#}
+{##}
+{#                    wx.onMenuShareAppMessage({#}
+{#                        title: data.title,#}
+{#                        desc: data.context,#}
+{#                        link: data.url,#}
+{#                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',#}
+{#                        trigger: function (res) {#}
+{#                            //alert('用户点击发送给朋友');#}
+{#                        },#}
+{#                        success: function (res) {#}
+{#                            alert('感谢您的分享～～');#}
+{#                            //分享之后增加游戏次数#}
+{#                        },#}
+{#                        cancel: function (res) {#}
+{#                            //alert('已取消');#}
+{#                        },#}
+{#                        fail: function (res) {#}
+{#                            alert(res.errMsg);#}
+{#                        }#}
+{#                    });#}
+{##}
+{#                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口#}
+{#                    wx.onMenuShareTimeline({#}
+{#                        title: data.title,#}
+{#                        //desc: data.context,#}
+{#                        link: data.url,#}
+{#                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',#}
+{#                        trigger: function (res) {#}
+{#                            //alert('用户点击分享到朋友圈');#}
+{#                        },#}
+{#                        success: function (res) {#}
+{#                            alert('感谢您的分享～～');#}
+{#                        },#}
+{#                        cancel: function (res) {#}
+{#                            //alert('已取消');#}
+{#                        },#}
+{#                        fail: function (res) {#}
+{#                            alert(res.errMsg);#}
+{#                        }#}
+{#                    });#}
+{#                    wx.onMenuShareQQ({#}
+{#                        title: data.title, // 分享标题#}
+{#                        desc: data.context, // 分享描述#}
+{#                        link: data.url, // 分享链接#}
+{#                        imgUrl: data.image, // 分享图标#}
+{#                        success: function () {#}
+{#                            alert('感谢您的分享～～');#}
+{#                        },#}
+{#                        cancel: function () {#}
+{#                            // 用户取消分享后执行的回调函数#}
+{#                        },#}
+{#                        fail: function (res) {#}
+{#                            alert(res.errMsg);#}
+{#                        }#}
+{#                    });#}
+{#                    wx.error(function (res) {#}
+                        {#                               alert(res.errMsg);#}
+{#                    });#}
+{#                });#}
+{#            },#}
+{#            error: function () {#}
+                {#                        alert('ajax request failed!!!!');#}
+{#                return;#}
+{#            }#}
+{#        });#}
+{#    });#}
+{##}
+{#    function onKeyDown(event) {#}
+{#        var e = event || window.event || arguments.callee.caller.arguments[0];#}
+{#        if (e && e.keyCode == 27) { // 按 Esc#}
+{#            //要做的事情#}
+{#        }#}
+{#        if (e && e.keyCode == 113) { // 按 F2#}
+{#            //要做的事情#}
+{#        }#}
+{#        if (e && e.keyCode == 13) { // enter 键#}
+{#            //alert("此处回车触发搜索事件");#}
+{#            $.beginSearch();#}
+{#        }#}
+{##}
+{#    }#}
+{#</script>#}
+{##}
+{#<script type="text/javascript">#}
+{#    try {#}
+        {#       alert('abc');#}
+{#        var Dict = {{ wxInfo|safe }};#}
+        {#        $.cookie("OpenId", Dict.OpenId);#}
+        {#        $.cookie("WxName", Dict.WxName);#}
+        {#        $.cookie("HeadImg", Dict.HeadImg);#}
+{#        if (typeof(Dict) == "undefined") {#}
+{#            alert("微信头像加载失败");#}
+{#        }#}
+{#        else {#}
+{#            $.setUserInfo(Dict.OpenId, Dict.WxName, Dict.HeadImg);#}
+{#        }#}
+{#    }#}
+{#    catch (err) {#}
+{#        alert("微信头像加载失败2");#}
+{#    }#}
+{#</script>#}
+</body>
+</html>

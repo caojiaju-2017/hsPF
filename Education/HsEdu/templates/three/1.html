@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>平面网格</title>
+    <script src="/static/js/three/three.js"></script>
+    <script src="/static/js/three/extra/controls/OrbitControls.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/MTLLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/LoaderSupport.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader2.js"></script>
+    <script src="/static/js/three/extra/utils/SceneUtils.js"></script>
+{#    <script src="/static/js/three/extra/loaders/OBJMTLLoader.js"></script>#}
+</head>
+<body onload="main()">
+{#    <audio src="/static/data/music.mp3" autoplay loop></audio>#}
+    <script>
+        function main() {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(60,window.innerWidth / window.innerHeight,1,1000);
+            var renderer = new THREE.WebGLRenderer();
+
+            camera.position.set(-20,30,40);
+            camera.lookAt((new THREE.Vector3(10,0,0)));
+            renderer.setClearColor(new THREE.Color(0Xeeeeff,1.0));
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            renderer.shadowMapEnabled = true;
+
+            // 创建网格对象
+            function createMesh(gemo) {
+                var meshMaterial = new THREE.MeshNormalMaterial();
+                var wireFaame = new THREE.MeshBasicMaterial();
+                wireFaame.wireframe = true;
+                return THREE.SceneUtils.createMultiMaterialObject(gemo,[meshMaterial,wireFaame]);
+            }
+            var plane = createMesh(new  THREE.PlaneGeometry(12,15,10,15));
+            scene.add(plane);
+
+            var spotLigth = new THREE.SpotLight(0xffffff);
+            scene.add(spotLigth);
+
+            function render() {
+                plane.rotation.x += 0.01;
+                plane.rotation.z += 0.01;
+                requestAnimationFrame(render);
+                renderer.render(scene,camera);
+            }
+
+            document.body.appendChild(renderer.domElement);
+            render();
+        }
+    </script>
+</body>
+</html>

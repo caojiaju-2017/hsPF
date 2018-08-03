@@ -1,0 +1,45 @@
+﻿the night before Christmas, when all thro’ thehouse not a creature was stirring — except for me, sitting in bed, frantically checking the price ofbitcoin.
+圣诞前夜，家里空荡荡的，只有我一个人在家——坐在床上，疯狂地查看比特币的价格。
+A couple of weeks earlier, I had had the bright ideaof buying my family cryptocurrency for Christmas. With hours to go, my gift was looking rather lessgenerous than I had hoped.
+在此几个星期前，我想到了一个绝妙的主意，用加密货币作为圣诞节礼物送给家人。距圣诞节只剩下几个小时的时间，我的礼物看起来远没有我原本希望的那么慷慨了。
+It all started, as these things often do, at a dinner party. A couple of friends, both of whomwork in the tech industry, had said they were sitting on tens of thousands of dollars’ worth ofbitcoin gains after investing only a few months ago.
+一切源于一次晚餐聚会，这种事情通常都是这样发生的。我的朋友中有一对夫妻，两人都在科技行业工作。他们说，几个月前买了比特币，现在已经赚了好几万美元。
+At this point in mid-December, the price of a single bitcoin was hovering around $17,000. Having increased many times over in the previous months, there seemed little reason to doubtthat the bubble would keep inflating.
+当时是12月中旬，比特币价格徘徊在17000美元左右。在那之前的几个月里，价格上涨了好几倍，似乎没有理由认为泡沫不会继续膨胀。
+I have never previously dabbled in buying cryptocurrency, which I still struggle to see havingmany practical uses, and I am usually rather more risk-averse in my investments. But I thoughtgiving my parents and parents-in-law their first taste of bitcoin might spark someconversation around the Christmas dinner table, while also providing a modest fallback in theevent of the total collapse of the traditional financial system and descent into crypto-anarchy.
+我以前从未涉足过购买加密货币，至今我仍然看不到它有什么实际用途，而且我在投资时，通常会采取更为安全的策略。但我的想法是，送父母和岳父母比特币让他们尝尝鲜，可能会为圣诞节晚餐创造一些餐桌上的话题，同时，如果传统金融体系全面崩溃，陷入加密-无政府状态(crypto-anarchy)，这也算给他们开辟了一条小小的退路。
+So I downloaded Coinbase, the cryptocurrency wallet app, and set about buying some bitcoin. (At the time, I felt reassured by the fact that Coinbase was at the top of the iPhone’s App Storerankings; perhaps I should have realised it was a sign a market top was approaching.)
+于是，我下载了加密货币钱包应用Coinbase，并准备购买一些比特币。（当时，Coinbase在iPhone的AppStore的排行榜上名列前茅，这一点让我更觉踏实； 也许，我当时就应该意识到，这是市场即将见顶的信号。）
+Setting up a Coinbase account was straightforward, but I was limited initially to a $400 purchase using my credit card, so I settled on buying $100 per parental unit — too little toworry about if it disappeared in a flash, but enough to pay for a nice dinner or two if itcontinued doubling on a regular basis.
+建立一个Coinbase账户非常简单，但首次用信用卡交易的限额是400美元。所以，我最终给父母和岳父母每人买了100美元的比特币——这笔金额太小，即使它们瞬间化为乌有，也不用担心。但是，如果比特币继续定期翻番，也足够他们外出吃一两顿像样的晚餐。
+All too soon, I was glued to the bitcoin price chart. Within days, it had leapt again to within afew bucks of $20,000 apiece. My plan was to wrap a bag of chocolate coins to present onChristmas Day, before nabbing my family’s phones to help them set up wallets into which Icould deposit their virtual riches.
+很快，我的眼睛就粘在了比特币走势图上。几天之内，比特币价格再次跳涨， 距离20,000美元只差几美元。我的计划是，在圣诞节那天，包上一包硬币巧克力，作为礼物送出，然后拿起家人的电话，帮助他们设置钱包，这样我就可以把他们的虚拟财富存入其中。
+The bitcoin price began to fall to earth before I had even made it home for the holidays. Thetopic came up over the breakfast table by December 23, when my father waved a copy of theFT Weekend’s front page, unhelpfully splashed with news of its abrupt “30 per cent drop”.
+还没等到我回家过节，比特币的价格就开始暴跌。12月23日，这个话题出现在我家的早餐桌上，当时我父亲挥动一份《金融时报》周末版的头版，上面正是我不愿看到的比特币突然“下跌30%”的消息。
+Still, the Redditors cried “hodl!” (a bitcoiner meme that has become a maxim) — so hold on Idid.
+然而，Redditor网站的用户还在喊“继续持有！”（hodl，比特币玩家圈中一个已成为信条的模因(meme)）——所以，我也继续持有了。
+By Christmas morning, my $100 of bitcoin had been transformed into an $80 gift. Yet I stillfelt it had value as a glimpse into the techno-future. The Queen in her annual televised speechmay have marvelled at video being beamed to mobile phones, but soon my parents would beslinging Satoshis!
+到圣诞节早上，我价值100美元的比特币贬值成了一件80美元的礼物。然而，作为窥探技术未来的一个窗口，我仍觉得它有其价值。英国女王在年度电视讲话中可能对用手机看视频惊叹不已，不过，我父母很快就会玩比特币了！
+Instead, the slow and painful gifting process merely exposed me as a crypto newbie.
+不过，此次缓慢而痛苦的送礼过程恰恰暴露了我是加密货币的菜鸟一枚。
+Initially, my parents seemed amused, if also a little bemused, by the investment opportunityI had created for them. But when it came to transferring the bitcoin to their account — the partthat is supposed to be so disruptively simple — it was me who felt disintermediated.
+起初，对我为他们创造的投资机会，父母似乎感到很好玩，可能也有些困惑。但是，在把比特币转入他们账户的过程中——这本应该是超级简单的操作—— 领教到“去中介化”是怎么回事儿的是我。
+First, the Coinbase sign-up process seemed more complicated than it had been for me. Textmessages sent to verify phone numbers never arrived. The app demanded an array of legaldocuments to prove the new users’ identity. “This is a funny sort of Christmas present,” myfather-in-law said as he handed me his credit card and driving licence to scan into the app.
+首先，在Coinbase上为我父母注册的过程似乎比我注册时更为复杂。为验证电话号码而发出的短信一直收不到。该应用需要一系列法律文件来证明新用户的身份。 “这圣诞礼物挺有意思，”我的岳父在把信用卡和驾照递给我时说，我需要将这些信息扫描到应用中。
+Once the accounts were finally active, I scanned the QR code on my father’s Coinbase app totransfer the bitcoin from my wallet to his. A message informed me there was a “mining fee”, priced in some minute fraction of a bitcoin. “This fee is paid to the digital currency miners, whoprocess the transactions and secure the respective network,” Coinbase’s help page explained. This seemed odd for such a small, peer-to-peer transaction, but I agreed.
+待帐户最终激活之后，我扫描了父亲的Coinbase应用的二维码，将比特币从我的钱包转入他的账户。我收到一条短信说，需要支付一笔微不足道的“挖矿费”。 “这笔费用将支付给数字货币的矿工，他们负责处理交易，并保证交易双方网络的安全，” Coinbase的帮助页面解释说。对于如此小规模的点对点交易，这似乎有点怪异，但我同意了。
+The minute fraction of a bitcoin, it turned out, was worth about $30 — more than a third of thevalue I was transferring. I later learned that, had I transferred to his Coinbase usernameinstead of scanning the QR code, there would have been no fee — but there was nothing towarn me of that before it was too late.
+结果，这笔“微不足道”的挖矿费居然相当于约30美元—— 超过我转账价值的三分之一。后来我才了解到，如果我在转账时不扫二维码，而是直接输入他的Coinbase用户名，就不收任何费用了——但是，我事先没看到任何提示信息。
+At least, I thought, there would be none of the traditional banking nonsense about waiting forthe cheque to clear.
+我想，比特币转账至少不会像传统银行业务中那样，还要等待支票入账。
+Not so fast.
+我想当然了。
+Hours went by, and the transaction was still listed as “pending”. I turned to Coinbase’s in-appcustomer support. “Ada the Coinbase Support Bot” was unable to explain where my digitalcurrency was, so I tried again by email. “Thank you for submitting your request. Due toincreased volume, it may take several days to receive a response,” came the reply. MyChristmas present, apparently delayed by some sort of blockchain blockage, seemed in dangerof slipping into the new year.
+时间一分一秒地过去了，交易仍处于“待执行”状态。我向Coinbase应用的内置客户支持寻求帮助。“Coinbase客服机器人Ada”无法解释我的数字货币在何处，所以，我通过电子邮件再次尝试。得到的答复是：“感谢您提交请求。 由于问询量增加，可能需要几天的时间才会收到回复”。看上去，由于被某种区块链阻塞所延误，我的圣诞节礼物有可能得到明年才能送到了。
+ 
+Coinbase’s online explainer was no more encouraging. “Usually the delay is under an hour,” itread. “Occasionally, transactions are not accepted by the rest of the network and therefore arenever considered to be ‘confirmed’.” Moving money around, the phrase “never considered tobe confirmed” was not the reassurance I had hoped for.
+Coinbase的在线解释同样令人失望。“通常情况下，延迟时间不会超过一个小时，”解释文字写到。“有时候，交易未被网络的其他部分接受，因此，这些交易从未被视为‘已确认’”。在转钱过程中，“从未被视为已确认”这种说法并不是我希望得到的定心丸。
+By Boxing Day, my father’s bit-pittance had finally landed — by which time, their value hadincreased slightly. “I’ve got $90 worth of bitcoins according to my app. So — wealthy,” my dadtexted me to say. He was so excited, he went for a nap.
+到了节礼日（Boxing Day，指圣诞节次日——译者注），我给我父亲的这个微不足道的圣诞礼物终于到账了——而且当时，价值还略有增加。“我的应用显示，我有价值90美元的比特币。太——有钱了，”我爸发短信给我说。他兴奋得要去打个盹。
+Two weeks later, bitcoin is still stubbornly refusing to return to the $17,000 price at which Ihad started. If they ever do make money, I hope my family continues to hodl — if only so I donot have to figure out how to convert the bitcoin back into simple, familiar fiat currency.
+两个星期后，比特币仍然固执地拒绝回到我的买入价17,000美元。如果有朝一日比特币真的涨了，我希望我的家人继续持有—— 这样我就不必去弄清楚如何将比特币转换成简单而熟悉的法定货币了。

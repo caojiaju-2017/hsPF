@@ -1,0 +1,22 @@
+http://www.runoob.com/bootstrap/bootstrap-dropdown-plugin.html
+http://www.runoob.com/jquerymobile/jquerymobile-list-content.html
+
+http://fengyuanchen.github.io/distpicker/
+
+358 艺术字  http://www.qt86.com/
+
+新华字典：https://www.juhe.cn/docs/api/id/156
+
+0高中
+1初中
+2小学
+3幼教
+
+
+0语文
+1数学
+2英语
+4其他
+
+
+distpicker ==== 城市选择 空间

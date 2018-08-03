@@ -1,0 +1,27 @@
+.container-fluid
+{
+    background-color: transparent;
+    /*font-size: 36px;*/
+}
+.navbar
+{
+    background-color: transparent;
+}
+
+.body_frame1
+{
+    background-color: #0c8a90;
+    width: 100%;
+}
+
+.body_frame2
+{
+    /*background-color: #fc8a90;*/
+    width: 100%;
+}
+
+.body_frame3
+{
+    background-color: #8c8a90;
+    width: 100%;
+}

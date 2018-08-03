@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D测试</title>
+    <script src="/static/js/three/three.js"></script>
+    <script src="/static/js/three/extra/controls/OrbitControls.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/MTLLoader.js"></script>
+    <script src="/static/js/three/extra/loaders/LoaderSupport.js"></script>
+    <script src="/static/js/three/extra/loaders/OBJLoader2.js"></script>
+{#    <script src="/static/js/three/extra/loaders/OBJMTLLoader.js"></script>#}
+</head>
+<body>
+    <audio src="/static/data/music.mp3" autoplay loop></audio>
+    <script>
+        var scene=new THREE.Scene();
+
+        var geometry=new THREE.BoxGeometry(100,100,100);
+        var material=new THREE.MeshLambertMaterial({
+            color:0xffffff,
+            map:THREE.ImageUtils.loadTexture('/static/data/logo-webgl.png')
+        });
+        var mesh=new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        var loader=new THREE.OBJLoader();
+        loader.load('/static/data/dog/dog.obj', function(dogObject){
+            dogObject.scale.set(0.1, 0.1, 0.1);
+            dogObject.position.y=50;
+            dogObject.position.x=-30;
+            scene.add(dogObject);
+        });
+
+{#        var loader2=new THREE.OBJMTLLoader();#}
+        var loader2 = new THREE.OBJLoader2();
+        loader2.load('/static/data/dog/dog.obj', '/static/data/dog/dog.mtl', function(dogObject){
+            dogObject.scale.set(0.1, 0.1, 0.1);
+            dogObject.position.y=50;
+            dogObject.position.x=30;
+            scene.add(dogObject);
+        });
+
+
+
+        // Skybox
+
+        var path = "/static/data/pisa/";
+        var format = '.png';
+        var urls = [
+            path + 'px' + format, path + 'nx' + format,
+            path + 'py' + format, path + 'ny' + format,
+            path + 'pz' + format, path + 'nz' + format
+        ];
+
+        var textureCube = THREE.ImageUtils.loadTextureCube( urls );
+
+        var shader = THREE.ShaderLib[ "cube" ];
+        shader.uniforms[ "tCube" ].value = textureCube;
+
+        var material = new THREE.ShaderMaterial( {
+
+                    fragmentShader: shader.fragmentShader,
+                    vertexShader: shader.vertexShader,
+                    uniforms: shader.uniforms,
+                    depthWrite: false,
+                    side: THREE.BackSide
+
+                } ),
+
+                mesh = new THREE.Mesh( new THREE.BoxGeometry( 1000, 1000, 1000 ), material );
+        scene.add( mesh );
+
+
+        var light=new THREE.PointLight(0xffffff);
+        light.position.set(300,400,200);
+        scene.add(light);
+
+        scene.add(new THREE.AmbientLight(0x333333));
+
+        var camera=new THREE.PerspectiveCamera(40, 800/600, 1, 2000);
+        camera.position.set(200,200,200);
+        camera.lookAt(scene.position);
+
+        var renderer=new THREE.WebGLRenderer();
+        renderer.setSize(800, 600);
+        document.body.appendChild(renderer.domElement);
+
+        function render() {
+            renderer.render(scene,camera);
+        }
+
+        render();
+
+        var controls=new THREE.OrbitControls(camera);
+        controls.addEventListener('change', render);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            render();
+        }
+
+        animate();
+    </script>
+</body>
+</html>

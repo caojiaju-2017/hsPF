@@ -1,0 +1,80 @@
+#my_content {
+    /*background: linear-gradient(to bottom right, #f5f454, #fbd1b7);*/
+    background-color: #f0f0f0;
+}
+
+.user_div2 {
+    width: 100%;
+    height: 80px;
+    background-color: #92B8B1;
+    /*position:absolute; top:250px;*/
+    /*left:550px;*/
+    /*cursor:pointer;*/
+}
+
+.user_head2 {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 30px;
+}
+
+.user_detail2 {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.order_div2 {
+    width: 100%;
+    /*background-color: white;*/
+    color: darkred
+}
+
+.item_function2 {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+}
+
+.itemLogo2 {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5%;
+    float: left;
+}
+
+.itemTitle2 {
+    height: 30px;
+    font-size: 18px;
+    color: #777777;
+    background-color: white;
+    float: left;
+    line-height: 30px;
+    margin-top: 5px;
+    margin-left: 40px;
+}
+
+.right_arrow2 {
+    width: 16px;
+    height: 10px;
+    float: right;
+    margin-right: 5%;
+    margin-top: 15px;
+}
+
+/*.seperatoLine2 {*/
+    /*width: 90%;*/
+    /*height: 1px;*/
+    /*margin-left: 5%;*/
+    /*background-color: #aaaaaa;*/
+/*}*/
+
+.seperatorDiv2 {
+    height: 3px;
+    width: 100%;
+}

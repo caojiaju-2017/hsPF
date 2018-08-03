@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商务合作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+</head>
+<body style="background-image: url('/static/Images/background.png');background-size: 100% 100%;background-repeat:no-repeat;">
+{#  引入公共js  #}
+<script src="/static/js/public/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+
+{#<script type="text/javascript">#}
+{#$(document).ready(function(e) {#}
+{#            var counter = 0;#}
+{#            if (window.history && window.history.pushState) {#}
+{#                             $(window).on('popstate', function () {#}
+{#                                            window.history.pushState('forward', null, '#');#}
+{#                                            window.history.forward(1);#}
+{#                                          location.href='./wait.html?hidden=1'#}
+{#                                });#}
+{#              }#}
+{##}
+{#              window.history.pushState('forward', null, '#'); //在IE中必须得有这两行#}
+{#              window.history.forward(1);#}
+{#});#}
+{#</script>#}
+
+{#  商务人士---微信二维码  #}
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="list-group">
+        <div class="col-xs-2 col-sm-2 col-md2">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md8" style="text-align: center">
+            <a style="font-size: 1.4em;color: #0c8a90">
+                <img src="/static/Images/{{ SYS_EWM }}" width="100%" height="100%">
+                微信公众号
+            </a>
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md2">
+        </div>
+    </div>
+</div>
+
+{#  合作说明  #}
+<div class="container-fluid" style="margin-top: 30px;">
+    <div class="list-group" style="">
+        <div class="col-xs-12 col-sm-12 col-md12" style="font-size: 1.3em;background-color: #0c8a90;color: #f2f2f2;height: 40px;line-height: 40px;border-radius: 10px">
+            合作说明
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px;margin-top: 10px">
+            1、您可以是资源提供者，通过平台发布资源，获取利润，请关注微信公众号。
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px">
+            2、公众平台即将上线服务板块，如果您可提供技能培训，如：家教，专业技能，请关注微信公众号。
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;padding-left: 20px">
+            您关注公众号后，请按照如下模板给我发消息：<br/>
+            <a style="color: #0c8a90">
+            联系人     &nbsp; &nbsp;： XXXXX<br/>
+            联系电话： xxxxxxxxxxx<br/>
+            合作方向： 资源提供者、技能提供者<br/>
+                </a>
+        </div>
+    </div>
+</div>
+
+{#  其他联系方式  #}
+<div class="container-fluid" style="margin-top: 30px;margin-bottom: 40px;">
+    <div class="list-group">
+        <div class="col-xs-12 col-sm-12 col-md12" style="font-size: 1.3em;background-color: #0c8a90;color: #f2f2f2;height: 40px;line-height: 40px;border-radius: 10px">
+            联系商务经理
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad;margin-top: 10px">
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: right">
+            商务电话：
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md8">
+                <a href="tel:{{ SYS_PHONE }}">拨打号码</a> &nbsp;&nbsp;&nbsp;
+                <a href="sms:{{ SYS_PHONE }}">发送短信</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md12" style="color: #adadad">
+            <div class="col-xs-4 col-sm-4 col-md4" style="text-align: right">
+            在线QQ：
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md8">
+            {{ SYS_QQ }}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

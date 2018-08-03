@@ -1,0 +1,2 @@
+﻿A star has 5 ends; A square has 4 ends; A triangle has 3 ends; A line has 2 ends; A life has one end. Our happiness has no end. 
+星星有五个终点，正方形有四个终点，三角形有三个终点，一条线有两个终点，人生只有一个终点，而我们的幸福没有终点。

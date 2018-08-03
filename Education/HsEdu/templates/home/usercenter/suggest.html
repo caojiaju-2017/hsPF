@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的建议</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/usercenter/suggest.css"/>
+</head>
+<body style="background-image: url('/static/Images/background.png');background-size: 100% 100%;background-repeat:no-repeat;padding-bottom: 70px;">
+{#  引入公共js  #}
+<script src="/static/js/public/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/usercenter/suggest.js"></script>
+
+{#<script type="text/javascript">#}
+{#$(document).ready(function(e) {#}
+{#            var counter = 0;#}
+{#            if (window.history && window.history.pushState) {#}
+{#                             $(window).on('popstate', function () {#}
+{#                                            window.history.pushState('forward', null, '#');#}
+{#                                            window.history.forward(1);#}
+{#                                          location.href='./wait.html?hidden=1'#}
+{#                                });#}
+{#              }#}
+{##}
+{#              window.history.pushState('forward', null, '#'); //在IE中必须得有这两行#}
+{#              window.history.forward(1);#}
+{#});#}
+{#</script>#}
+
+<img src="/static/Images/suggest_banner.png" width="100%" height="175px">
+
+<div style="padding-left: 10px;padding-right: 10px">
+    <div class="input-group" style="margin-top: 20px">
+        <span class="input-group-addon">标题</span>
+        <input type="text" class="form-control" placeholder="请输入标题" id="title">
+    </div>
+</div>
+<div style="padding-left: 10px;padding-right: 10px">
+    <div class="input-group" style="margin-top: 20px">
+        <span class="input-group-addon">姓名</span>
+        <input type="text" class="form-control" placeholder="怎么称呼？" id="customname">
+    </div>
+</div>
+<div style="padding-left: 10px;padding-right: 10px">
+    <div class="input-group" style="margin-top: 20px">
+        <span class="input-group-addon">电话</span>
+        <input type="text" class="form-control" placeholder="您的电话是？" id="customphone">
+    </div>
+</div>
+
+<div style="height: 20px"></div>
+<span class="label label-default" style="margin-left: 10px;font-size: 1.2em">详细描述</span>
+<div style="height: 10px"></div>
+
+<div style="margin-left: 10px;margin-right: 10px">
+        <textarea name="mytextarea" style="width: 100%;height: 200px;border-color: #e5e5e5" id="infodetail"></textarea>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #e3e3e3 ;margin-top: 10px">
+    <div class="container" style="background-color: transparent;margin-top: 5px">
+        <div class="nav" onclick="$.commitQuestion()">
+            提交建议
+        </div>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+    <title> 主页-手机版 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+<link rel="stylesheet" href="/static/myschool/mb_school.css"/>
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="/static/myschool/mb_school.js"></script>
+</head>
+
+<body style="text-align: center">
+
+<iframe class="body_frame1" id="body_frame1" hidden src="mb_my.html"></iframe>
+<iframe class="body_frame2" id="body_frame2" hidden src="mb_home.html" style="border: white;width: 100%;"></iframe>
+<iframe class="body_frame3" id="body_frame3" hidden src="mb_find.html"></iframe>
+
+<div class="main_nav_bottom" style="">
+                <nav class="navbar navbar-default navbar-fixed-bottom" style=";padding: 0px">
+                    <div style="width: 100%;height: 1px;background-color: #9F9F9F"></div>
+                    <div class="container" align="center" style=";padding: 0px;width: 100%;height: 30px;background-color: #fff;">
+                        <ul class="nav nav-tabs nav-tabs-justified" style="width: 100%;padding: 0px;height: 100%">
+                            <div class="row" align="center" style="font-size: 18px;padding: 0px;height: 100%">
+
+                                <div onclick="$.showResource(2)" class="col-md-4 col-sm-4 col-xs-4" align="center" style="background-color: #fff;height: 100%;line-height:30px;margin-top: 5px">
+                                    <li style="height: 30px;margin-top: 5px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_2">
+                                        我的
+                                    </li>
+                                </div>
+
+                                <div onclick="$.showResource(10)" class="col-md-4 col-sm-4 col-xs-4" align="center" style="background-color: #fff;height: 100%;line-height:30px;margin-top: 5px">
+                                    <li style="height: 30px;margin-top: 5px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_10">
+                                        <img src="/static/myschool/Images/home_focus.png" style="width: 20px;height: 20px;" alt="" id="abc_10_img">
+                                    </li>
+
+                                </div>
+
+                                <div onclick="$.showResource(4)" class="col-md-4 col-sm-4 col-xs-4" align="center" style="background-color: #fff;height: 100%;line-height:30px;margin-top: 5px">
+                                    <li style="height: 30px;margin-top: 5px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_4">
+                                        发现
+                                    </li>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+<script type="text/javascript">
+    $(function () {
+        /***用户点击分享到微信圈后加载接口接口****------***/
+        var url = window.location.href.split('#')[0];
+        url = url.replace(/&/g, '%26');
+        console.log("url:" + url);
+        $.ajax({
+            url: "http://www.h-sen.com/shareToFriend/?url=" + url,
+            type: "POST",
+            async: true,
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                                {#alert("success1 appId = " + data.appId);#}
+                                {#alert("success1 timeStamp = " + data.timeStamp);#}
+                                {#alert("success1 nonceStr = " + data.nonceStr);#}
+                                {#alert("success1 signature = " + data.signature);#}
+                wx.config({
+                    debug: false,
+                    appId: data.appId,
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+                    //wx.hideOptionMenu();/***隐藏分享菜单****/
+                    wx.checkJsApi({
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ],
+                        success: function (res) {
+                            //alert(res.errMsg);
+                        }
+                    });
+
+                    wx.onMenuShareAppMessage({
+                        title: data.title,
+                        desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                            //分享之后增加游戏次数
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+
+                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+                    wx.onMenuShareTimeline({
+                        title: data.title,
+                        //desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.onMenuShareQQ({
+                        title: data.title, // 分享标题
+                        desc: data.context, // 分享描述
+                        link: data.url, // 分享链接
+                        imgUrl: data.image, // 分享图标
+                        success: function () {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.error(function (res) {
+                        alert(res.errMsg);
+                    });
+                });
+            },
+            error: function () {
+                                        {#alert('ajax request failed!!!!');#}
+                return;
+            }
+        });
+    });
+
+    function onKeyDown(event) {
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if (e && e.keyCode == 27) { // 按 Esc
+            //要做的事情
+        }
+        if (e && e.keyCode == 113) { // 按 F2
+            //要做的事情
+        }
+        if (e && e.keyCode == 13) { // enter 键
+            //alert("此处回车触发搜索事件");
+            $.beginSearch();
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    try {
+               alert('abc');
+                var Dict = {{ wxInfo|safe }};
+                $.cookie("OpenId", Dict.OpenId);
+                $.cookie("WxName", Dict.WxName);
+                $.cookie("HeadImg", Dict.HeadImg);
+        if (typeof(Dict) == "undefined") {
+            alert("微信头像加载失败");
+        }
+        else {
+            $.setUserInfo(Dict.OpenId, Dict.WxName, Dict.HeadImg);
+        }
+    }
+    catch (err) {
+        alert("微信头像加载失败2");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+.user_detail
+{
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.seperatorDiv
+{
+    height: 1pc;
+    width: 100%;
+}
+.order_div
+{
+    width: 100%;
+    height: 24pc;
+    background-color: white;
+    color: darkred
+}
+.seperatoLine
+{
+    width: 90%;
+    height: 1px;
+    margin-left: 5%;
+    background-color: #aaaaaa;
+}
+
+.remarkTitckets
+{
+    width: 100%;
+    height: 8pc;
+    background-color: white;
+}
+.item_function
+{
+    width: 100%;
+    height:8pc;
+    background-color: white;
+}
+
+.itemLogo
+{
+    width: 6pc;
+    height:6pc;
+    float: left;
+    margin-top: 1pc;
+    margin-left: 30px;
+    float: left;
+}
+
+.itemTitle
+{
+    height:1.5pc;
+    font-size: 2.6em;
+    color: #777777;
+    background-color: white;
+    float: left;
+    line-height: 8pc;
+    margin-left: 40px;
+}
+
+.right_arrow
+{
+    width: 2pc;
+    height:2pc;
+    float: right;
+    margin-right: 5%;
+    margin-top: 3pc;
+}
+
+/*.nav {*/
+    /*postion:relative;*/
+    /*bottom:0px;margin:0px;float:left;width:100%;;height: 100px;margin-left: 0px;margin-right: 0px;*/
+    /*margin:0 auto;*/
+    /*background:#e0e0e0;*/
+    /*position:fixed;*/
+    /*color: #0c0a90;    bottom:0;*/
+    /*font-size: 2.0em;*/
+    /*line-height: 100px;*/
+    /*text-align:center;*/
+/*}*/

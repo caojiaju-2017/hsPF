@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title> 教育在线 </title>
+    {#    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.35, user-scalable=no">#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/test.css" media="all">
+{#    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">#}
+{#	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>#}
+{#	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+</head>
+
+<body>
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="/static/js/public/JSUtils.js"></script>
+<script src="/static/js/public/cookie.js"></script>
+<script src="/static/js/bootstrap/bootstrap.js"></script>
+<script src="/static/js/home/test.js"></script>
+<script type="text/javascript">
+    $(function () {
+        /***用户点击分享到微信圈后加载接口接口****------***/
+        var url = window.location.href.split('#')[0];
+        url = url.replace(/&/g, '%26');
+        console.log("url:" + url);
+        $.ajax({
+            url: "http://www.h-sen.com/shareToFriend/?url=" + url,
+            type: "POST",
+            async: true,
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                wx.config({
+                    debug: false,
+                    appId: data.appId,
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+                    //wx.hideOptionMenu();/***隐藏分享菜单****/
+                    wx.checkJsApi({
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ],
+                        success: function (res) {
+                            //alert(res.errMsg);
+                        }
+                    });
+
+                    wx.onMenuShareAppMessage({
+                        title: data.title,
+                        desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/' + data.image,
+                        trigger: function (res) {
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                            //分享之后增加游戏次数
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+
+                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+                    wx.onMenuShareTimeline({
+                        title: data.title,
+                        //desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/' + data.image,
+                        trigger: function (res) {
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.onMenuShareQQ({
+                        title: data.title, // 分享标题
+                        desc: data.context, // 分享描述
+                        link: data.url, // 分享链接
+                        imgUrl: 'http://www.h-sen.com/static/Images/' + data.image, // 分享图标
+                        success: function () {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.error(function (res) {
+                    });
+                });
+            },
+            error: function () {
+                return;
+            }
+        });
+    });
+
+
+$(document).ready(function(e) { 
+            var counter = 0;
+            if (window.history && window.history.pushState) {
+                             $(window).on('popstate', function () {
+                                            window.history.pushState('forward', null, '#');
+                                            window.history.forward(1);
+                                          location.href='./wait.html?hidden=1'
+                                });
+              }
+
+              window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+              window.history.forward(1);
+});
+</script>
+
+<!--title-->
+<div style="width: 100%;text-align: center;font-size: 60px;color: #2b542c;margin-top: 20px">{{ NewsTitle }}</div>
+<!--分割线-->
+<div style="width: 100%;height: 1px;background-color: #2b542c"></div>
+
+<!--分割块-->
+<div style="width: 100%;height: 20px;background-color: #8c8c8c"></div>
+<div style="width: 100%;text-align: center;font-size: 30px;color: #2b542c">关注微信公众号，可领取免费资源:汉森教育</div>
+<button style="width: 30%;text-align: center;font-size: 40px;color: whitesmoke;background-color: #ec971f;
+margin-left: 35%;height: 80px;border-radius: 20px;margin-top: 20px" onclick="javascrtpt:window.location.href='./wait.html'">去资源主页</button>
+
+<div style="width: 100%;height: 20px;background-color: #8c8c8c;margin-top: 20px"></div>
+
+<div class="panel-group" id="accordion" style="margin-top: 20px">
+    {% for oneRecord in TitleInfos %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="height: 90px">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapse{{oneRecord.Index}}"  style="font-size:45px;color: #0c8a90;font-family: 'Microsoft YaHei UI Light';line-height: 90px">
+                        <!--标题1-->
+                        {{ oneRecord.StepName }}&nbsp{{oneRecord.Title}}
+                    </a>
+                </h4>
+            </div>
+            {% if oneRecord.Index == 0 %}
+                <div id="collapse{{oneRecord.Index}}" class="panel-collapse collapse in">
+            {% else %}
+                <div id="collapse{{oneRecord.Index}}" class="panel-collapse collapse">
+            {% endif %}
+                <div class="panel-body" style="font-size:40px;color: #8c8c8c">
+                    <!--标题文本-->
+                   {{ oneRecord.Info | safe }}
+                </div>
+                
+                {% if oneRecord.Image != "" %}
+		                <div class="panel-body" style="text-align: center;">
+		                    <!--标题配图-->
+		                    <img src="/static/Images/newsPic/{{ oneRecord.Image }}" class="img-rounded" style="width:90%">
+		                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+<!--底部打赏-->
+
+</body>
+</html>

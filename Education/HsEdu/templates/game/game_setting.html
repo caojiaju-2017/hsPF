@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/js/game/game_setting.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/game/game.css" media="all">
+</head>
+
+<body>
+<img src="/static/Images/game/range_image.png" class="img-circle" style="width: 240px;height: 240px;margin-top: 50px">
+
+
+<div class="container-fluid" style="">
+    <div class="list-group" id="res_item_div">
+        <a class="list-group-item row"
+           style="padding-left: 0px;padding-right: 0px;background-color: transparent;width: 90%;margin-left: 5%;border: transparent">
+
+            <div class="col-xs-2 col-sm-2 col-md2 img text-center" onclick="$.switchSetting('0')" id="kb_item"
+                 style="height: 150px;width:150px; border-radius:75px;background-color:#C69533 ;margin-left: 2%;font-size:48px;line-height: 150px;color: #ffffff">
+                课标
+            </div>
+
+            <div class="col-xs-1 col-sm-1 col-md1 img text-center"
+                 style="height: 20px;background-color: #fff;margin-top: 65px">
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md2 img text-center"  onclick="$.switchSetting('1')" id="xl_item"
+                 style="height: 150px;width:150px; border-radius:75px;background-color: #C7F5FD;line-height: 150px;font-size:48px">
+                学历
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md1 img text-center"
+                 style="height: 20px;background-color: #fff;margin-top: 65px">
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md2 img text-center"   onclick="$.switchSetting('2')" id="xn_item"
+                 style="height: 150px;width:150px; border-radius:75px;background-color: #C7F5FD;line-height: 150px;font-size:48px">
+                学年
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md1 img text-center"
+                 style="height: 20px;background-color: #fff;margin-top: 65px">
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md2 img text-center"  onclick="$.switchSetting('3')" id="xq_item"
+                 style="height: 150px;width:150px; border-radius:75px;background-color: #C7F5FD;line-height: 150px;font-size:48px">
+                学期
+            </div>
+        </a>
+    </div>
+</div>
+</div>
+
+{#400px#}
+<div class="setting_item_container_kb" id="setting_item_container_kb">
+    {% for oneRes in KBDatas %}
+        <div class="setting_item" style="" onclick="$.selectItem(0,'{{ oneRes.name }}',{{ oneRes.code }})">
+            {{ oneRes.name }}
+            <img src="/static/Images/game/unselect.png" id="kb_item_{{ oneRes.code }}"
+                 style="float: right;margin-right: 20px;height: 100px;width: 100px;margin-top: 20px">
+        </div>
+    {% endfor %}
+</div>
+
+<div class="setting_item_container_xl" id="setting_item_container_xl" hidden>
+    {% for oneRes in XLDatas %}
+    <div class="setting_item" style=""  onclick="$.selectItem(1,'{{ oneRes.name }}',{{ oneRes.code }})">
+        {{ oneRes.name }}
+        <img src="/static/Images/game/unselect.png" id="xl_item_{{ oneRes.code }}"
+             style="float: right;margin-right: 20px;height: 100px;width: 100px;margin-top: 20px">
+    </div>
+    {% endfor %}
+
+</div>
+{#setting_item_container_xn_xiaoxue#}
+<div class="setting_item_container_xn" id="setting_item_container_xn" hidden>
+    {% for oneRes in XNDatas %}
+    <div class="setting_item" style="font-size: 46px;" onclick="$.selectItem(2,'{{ oneRes.name }}',{{ oneRes.code }})" id="xn_item_div_{{ oneRes.code }}">
+        {{ oneRes.name }}
+        <img src="/static/Images/game/unselect.png" id="xn_item_{{ oneRes.code }}"
+             style="float: right;margin-right: 20px;height: 100px;width: 100px;margin-top: 20px">
+    </div>
+    {% endfor %}
+</div>
+
+<div class="setting_item_container_xq" id="setting_item_container_xq" hidden>
+    <div class="setting_item" style=""  onclick="$.selectItem(3,'上学期',0)">
+        上学期
+        <img src="/static/Images/game/unselect.png" id="xq_item_0"
+             style="float: right;margin-right: 20px;height: 100px;width: 100px;margin-top: 20px">
+    </div>
+    <div class="setting_item" style=""  onclick="$.selectItem(3,'下学期',1)">
+        下学期
+        <img src="/static/Images/game/unselect.png" id="xq_item_1"
+             style="float: right;margin-right: 20px;height: 100px;width: 100px;margin-top: 20px">
+    </div>
+</div>
+
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container">
+        <img src="/static/Images/game/back.png" class="back_image" onclick="$.goBackPage()">
+
+        <img src="/static/Images/game/save.png" class="save_image" onclick="$.saveSetting()">
+    </div>
+</footer>
+</body>
+</html>

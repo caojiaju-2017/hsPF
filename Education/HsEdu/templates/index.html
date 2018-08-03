@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title> HS在线 </title>
+    {#    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.35, user-scalable=no">#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css" media="all">
+{#    <link rel="stylesheet" href="/static/css/home/my_message.css"/>#}
+    <link rel="stylesheet" type="text/css" href="/static/css/home/user_center.css"/>
+
+</head>
+
+<body>
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="/static/js/public/JSUtils.js"></script>
+<script src="/static/js/public/cookie.js"></script>
+<script src="/static/js/bootstrap/bootstrap.js"></script>
+<script src="/static/js/home/resource_store.js"></script>
+<script src="/static/js/home/home.js"></script>
+
+{#页面分享代码#}
+<script type="text/javascript">
+    $(function () {
+        /***用户点击分享到微信圈后加载接口接口****------***/
+        var url = window.location.href.split('#')[0];
+        url = url.replace(/&/g, '%26');
+        console.log("url:" + url);
+        $.ajax({
+            url: "http://www.h-sen.com/shareToFriend/?url=" + url,
+            type: "POST",
+            async: true,
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                {#                alert("success1 appId = " + data.appId);#}
+                {#                alert("success1 timeStamp = " + data.timeStamp);#}
+                {#                alert("success1 nonceStr = " + data.nonceStr);#}
+                {#                alert("success1 signature = " + data.signature);#}
+
+                wx.config({
+                    debug: false,
+                    appId: data.appId,
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    signature: data.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+                    //wx.hideOptionMenu();/***隐藏分享菜单****/
+                    wx.checkJsApi({
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ],
+                        success: function (res) {
+                            //alert(res.errMsg);
+                        }
+                    });
+
+                    wx.onMenuShareAppMessage({
+                        title: data.title,
+                        desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                            //分享之后增加游戏次数
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+
+                    // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+                    wx.onMenuShareTimeline({
+                        title: data.title,
+                        //desc: data.context,
+                        link: data.url,
+                        imgUrl: 'http://www.h-sen.com/static/Images/default.jpg',
+                        trigger: function (res) {
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.onMenuShareQQ({
+                        title: data.title, // 分享标题
+                        desc: data.context, // 分享描述
+                        link: data.url, // 分享链接
+                        imgUrl: data.image, // 分享图标
+                        success: function () {
+                            alert('感谢您的分享～～');
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        },
+                        fail: function (res) {
+                            alert(res.errMsg);
+                        }
+                    });
+                    wx.error(function (res) {
+                        {#                               alert(res.errMsg);#}
+                    });
+                });
+            },
+            error: function () {
+                {#                        alert('ajax request failed!!!!');#}
+                return;
+            }
+        });
+    });
+
+    function onKeyDown(event) {
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if (e && e.keyCode == 27) { // 按 Esc
+            //要做的事情
+        }
+        if (e && e.keyCode == 113) { // 按 F2
+            //要做的事情
+        }
+        if (e && e.keyCode == 13) { // enter 键
+            //alert("此处回车触发搜索事件");
+            $.beginSearch();
+        }
+
+    }
+</script>
+
+<div class="bg" style="width: 100%;height: 100%;background-color: #e4e3e2">
+{#    <img src="/static/Images/background.png" width="100%" height="100%;">#}
+</div>
+
+{#<iframe src="news_page.html" style="width: 100%;height: 300px" name="main_frame" id="main_frame_id"></iframe>#}
+
+<div id="res_div" hidden style=";width:100%">
+    <div style="height: 320px;width:100%;text-align:center;background-image: url('/static/Images/searchbak.jpg')">
+        <div style="height: 80px;width:90%;padding-left: 10%;padding-top:40px;text-align:center">
+            <input type="text" class="filter" onkeydown="onKeyDown(event)"
+                   style="height: 80px;width:80%;font-size: 30px;border-radius:40px;padding-left: 30px" id="fliter_input" placeholder="请输入资源名字">
+        </div>
+    </div>
+
+    <div class="container-fluid" style="margin-bottom: 80px;background-color: #ECECEC">
+        <div class="list-group" id="res_item_div" style="overflow:hidden">
+        </div>
+    </div>
+</div>
+
+<div id="usercenter_div" hidden>
+
+    <!--头像部分-->
+    <div class="user_div" style="height: 200px">
+        <img src="/static/Images/default.png" class="user_head" id="user_head"
+             style="width:140px;height:140px;border-radius: 30px;margin-top:30px;float:left;margin-left:30px">
+        <div class="user_detail">
+            <div style="font-size: 3em;color: #111111;line-height: 200px;" id="uName">未知用户</div>
+        </div>
+    </div>
+    <!--粗分割div-->
+    <div class="seperatorDiv" style="background-color: #f3f3f3;"></div>
+    <div>
+        <div class="item_function"
+             onclick="$.getMyOrder()">
+            <img class="itemLogo" src="/static/Images/order.jpg">
+            <div class="itemTitle">购买记录</div>
+            <img class="right_arrow" src="/static/Images/right.png">
+        </div>
+    </div>
+    <div class="seperatorDiv"></div>
+    <div>
+        <div class="item_function"
+             onclick="javascrtpt:window.parent.location.href='./suggest.html?Command=Send_Suggest'">
+            <img class="itemLogo" src="/static/Images/suggest.jpg">
+            <div class="itemTitle">意见反馈</div>
+            <img class="right_arrow" src="/static/Images/right.png">
+        </div>
+    </div>
+
+    <div class="seperatorDiv"></div>
+    <div>
+        <div class="item_function"
+             onclick="javascrtpt:window.parent.location.href='./cooperation.html?Command=Open_Contact'">
+            <img class="itemLogo" src="/static/Images/hezuo.jpg">
+            <div class="itemTitle">商务合作</div>
+            <img class="right_arrow" src="/static/Images/right.png">
+        </div>
+    </div>
+
+
+    {% if game_open == 1 %}
+
+        <div class="seperatorDiv"></div>
+        <div>
+            <div class="item_function"
+                 onclick="$.openENGame()">
+                <img class="itemLogo" src="/static/Images/hezuo.jpg">
+                <div class="itemTitle">游戏-背单词</div>
+                <img class="right_arrow" src="/static/Images/right.png">
+            </div>
+        </div>
+
+    {% endif %}
+</div>
+
+<div class="main_nav_bottom" style="">
+                <nav class="navbar navbar-default navbar-fixed-bottom" style=";padding: 0px">
+                    <div style="width: 100%;height: 1px;background-color: #8a6d3b"></div>
+                    <div class="container" align="center" style=";padding: 0px;width: 100%;height: 120px;background-color: #fff;">
+                        <ul class="nav nav-tabs nav-tabs-justified" style="width: 100%;padding: 0px;height: 100%">
+                            <div class="row" align="center" style="font-size: 48px;padding: 0px;height: 100%">
+                                <div onclick="$.showResource(2)" class="col-md-2 col-sm-2 col-xs-2" align="center" style="background-color: #fff;height: 100%;line-height:100px;margin-left: 2.7%">
+                                    <li style="height: 100px;margin-top: 10px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_2">
+                                        数学
+                                    </li>
+                                </div>
+                                <div onclick="$.showResource(1)" class="col-md-2 col-sm-2 col-xs-2" align="center" style="background-color: #fff;height: 100%;line-height:100px;margin-left: 2.7%">
+                                    <li style="height: 100px;margin-top: 10px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_1">
+                                        语文
+                                    </li>
+                                </div>
+                                <div onclick="$.showResource(10)" class="col-md-2 col-sm-2 col-xs-2" align="center" style="background-color: #fff;height: 100%;line-height:100px;margin-left: 2.7%">
+                                    <li style="height: 100px;margin-top: 10px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_10">
+                                        我的
+                                    </li>
+                                </div>
+                                <div onclick="$.showResource(3)" class="col-md-2 col-sm-2 col-xs-2" align="center" style="background-color: #fff;height: 100%;line-height:100px;margin-left: 2.7%">
+                                    <li style="height: 100px;margin-top: 10px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_3">
+                                        英语
+                                    </li>
+                                </div>
+                                 <div onclick="$.showResource(4)" class="col-md-2 col-sm-2 col-xs-2" align="center" style="background-color: #fff;height: 100%;line-height:100px;margin-left: 2.7%">
+                                    <li style="height: 100px;margin-top: 10px;background-color: #FFFFFF;border-radius: 10px;color: #4C555A" id="abc_4">
+                                        其他
+                                    </li>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+<script type="text/javascript">
+    try {
+        {#       alert('abc');#}
+        var Dict = {{ wxInfo|safe }};
+        {#        $.cookie("OpenId", Dict.OpenId);#}
+        {#        $.cookie("WxName", Dict.WxName);#}
+        {#        $.cookie("HeadImg", Dict.HeadImg);#}
+        if (typeof(Dict) == "undefined") {
+            alert("微信头像加载失败");
+        }
+        else {
+            $.setUserInfo(Dict.OpenId, Dict.WxName, Dict.HeadImg);
+        }
+    }
+    catch (err) {
+        alert("微信头像加载失败2");
+    }
+</script>
+</body>
+</html>

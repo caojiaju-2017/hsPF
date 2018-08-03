@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/js/public/JSUtils.js"></script>
+{#    <script src="/static/js/public/beep.js"></script>#}
+    <script src="/static/js/public/cookie.js"></script>
+    <script src="/static/js/game/gamming.js"></script>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/game/game.css" media="all">
+</head>
+
+<body onload="$.windowLoading('{{ unitcode }}')" style="background-color: whitesmoke">
+<div class="input_title" id="input_title">
+    <div style="float: left;width: 80px;height: 80px;margin-left: 10px;font-size: 38px;" class="step_info" id="step_info">1/20</div>
+    <div class="input_div" id="input_div"></div>
+    <img src="/static/Images/game/back.png" onclick="$.backspaceLetter()" style="width: 80px;height: 80px;margin-top: 20px;float: right;margin-right: 20px">
+</div>
+
+<div id="canvas_pannel" class="canvas_pannel" style="background:url('/static/Images/game/gamming_bak.jpg');background-size:100%;">
+
+    <div class="item_column" style="">
+        <div class="word_div" id="word_1_0" onclick="$.clickLetter('A','word_1_0')">A</div>
+        <div class="word_div" id="word_1_1" onclick="$.clickLetter('B','word_1_1')">B</div>
+        <div class="word_div" id="word_1_2" onclick="$.clickLetter('C','word_1_2')">C</div>
+        <div class="word_div" id="word_1_3" onclick="$.clickLetter('D','word_1_3')">D</div>
+        <div class="word_div" id="word_1_4" onclick="$.clickLetter('E','word_1_4')">E</div>
+        <div class="word_div" id="word_1_5" onclick="$.clickLetter('F','word_1_5')">F</div>
+        <div class="word_div" id="word_1_6" onclick="$.clickLetter('G','word_1_6')">G</div>
+
+{#        <div class="word_div" id="word_1_7" onclick="$.clickLetter()"></div>#}
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_2_0" onclick="$.clickLetter('H','word_2_0')">H</div>
+        <div class="word_div" id="word_2_1" onclick="$.clickLetter('I','word_2_1')">I</div>
+        <div class="word_div" id="word_2_2" onclick="$.clickLetter('J','word_2_2')">J</div>
+        <div class="word_div" id="word_2_3" onclick="$.clickLetter('K','word_2_3')">K</div>
+        <div class="word_div" id="word_2_4" onclick="$.clickLetter('L','word_2_4')">L</div>
+        <div class="word_div" id="word_2_5" onclick="$.clickLetter('M','word_2_5')">M</div>
+        <div class="word_div" id="word_2_6" onclick="$.clickLetter('N','word_2_6')">N</div>
+{#        <div class="word_div" id="word_2_7" onclick="$.clickLetter()"></div>#}
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_3_0" onclick="$.clickLetter('O','word_3_0')">O</div>
+        <div class="word_div" id="word_3_1" onclick="$.clickLetter('P','word_3_1')">P</div>
+        <div class="word_div" id="word_3_2" onclick="$.clickLetter('Q','word_3_2')">Q</div>
+        <div class="word_div" id="word_3_3" onclick="$.clickLetter('R','word_3_3')">R</div>
+        <div class="word_div" id="word_3_4" onclick="$.clickLetter('S','word_3_4')">S</div>
+        <div class="word_div" id="word_3_5" onclick="$.clickLetter('T','word_3_5')">T</div>
+
+{#        <div class="word_div" id="word_3_6" onclick="$.clickLetter()">U</div>#}
+{#        <div class="word_div" id="word_3_7" onclick="$.clickLetter()"></div>#}
+    </div>
+
+    <div class="item_column">
+        <div class="word_div" id="word_4_0" onclick="$.clickLetter('U','word_4_0')">U</div>
+        <div class="word_div" id="word_4_1" onclick="$.clickLetter('V','word_4_1')">V</div>
+        <div class="word_div" id="word_4_2" onclick="$.clickLetter('W','word_4_2')">W</div>
+        <div class="word_div" id="word_4_3" onclick="$.clickLetter('X','word_4_3')">X</div>
+        <div class="word_div" id="word_4_4" onclick="$.clickLetter('Y','word_4_4')">Y</div>
+        <div class="word_div" id="word_4_5" onclick="$.clickLetter('Z','word_4_5')">Z</div>
+{#        <div class="word_div" id="word_4_6" onclick="$.clickLetter()"></div>#}
+{#        <div class="word_div" id="word_4_7" onclick="$.clickLetter()"></div>#}
+    </div>
+</div>
+
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container">
+        <div style="" class="seprator_line"></div>
+
+        <div class="control_div">
+            <div class="left_control" id="left_control"></div>
+            <div class="right_control">
+                <div class="stop_icon" onclick="$.terminalTest()">
+                    <img src="/static/Images/game/stop.png" style="width: 100px;height: 40px;margin-top: 30px">
+                </div>
+                <div class="voice_ctrl" onclick="$.playSound()">
+                    <img src="/static/Images/game/sound_white.png" style="width: 60px;height: 60px;margin-top: 20px">
+                </div>
+                <div class="switch_ctrl" id="switch_ctrl" onclick="$.goNext()">
+                    <img src="/static/Images/game/next.png" id="next_button" style="width: 60px;height: 60px">
+                </div>
+                <audio class="skPlayer-source" controls preload="auto" hidden><source src="" type="audio/mpeg"></audio>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{#<script type="text/javascript">#}
+{#    window.ontouchstart = function(e) {#}
+{#        e.preventDefault();#}
+{#    };#}
+{#</script>#}
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+.word_title {
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    padding-left: 30px;
+    color: #0c8a90;
+    font-size: 48px;
+    text-align: left;
+    font-family: "Microsoft YaHei UI";
+}
+
+.tag_title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 30px;
+    color: #8c8c8c;
+    font-size: 28px;
+    text-align: left;
+    font-family: "Microsoft YaHei UI";
+}
+
+.sound_lab {
+    width: 600px;
+    height: 80px;
+    text-align: left;
+    margin-top: 80px;
+    border-radius: 10px;
+    background: #8c8c8c;
+    font-size: 68px;
+    font-family: "Microsoft YaHei UI";
+}
+
+.word_content {
+    width: 100%;
+    line-height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+    color: #0c8a90;
+    font-size: 36px;
+    text-align: left;
+    float: none;
+    font-family: "Microsoft YaHei UI";
+}
+
+.en_content {
+    width: 100%;
+    line-height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+    color: #0c8a90;
+    font-size: 36px;
+    text-align: left;
+    float: none;
+    font-family: "Microsoft YaHei UI";
+}
+
+.cn_content {
+    width: 100%;
+    line-height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+    color: #009dda;
+    font-size: 36px;
+    text-align: left;
+    float: none;
+    font-family: "Microsoft YaHei UI";
+}
+
+.content {
+    width: 100%;
+    line-height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+    color: #009dda;
+    font-size: 42px;
+    text-align: left;
+    float: none;
+    font-family: "Microsoft YaHei UI";
+}
+
+.title_ewm {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 48px;
+    color: darkgreen;
+}
+
+.ewm_hs {
+    width: 400px;
+    height: 400px;
+}
