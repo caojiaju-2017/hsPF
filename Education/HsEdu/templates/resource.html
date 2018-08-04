@@ -11,8 +11,6 @@
     <script src="/static/Public/public.js"></script>
 
     <script src="/static/threePart/LayUi/layui.js"></script>
-    <script src="/static/OrgHome/Media_js/version_list.js"></script>
-
     <link rel="stylesheet" href="/static/threePart/Boost/bootstrap.css"/>
     <link rel="stylesheet" href="/static/threePart/LayUi/css/layui.css" media="all">
 
@@ -25,18 +23,20 @@
 </head>
 <body>
 
-<div style="background: #fff;height: 600px;width: 90%;margin-left:5%;" id="vip_div">
+<div style="background: #fff;height: 600px;width: 90%;margin-left:5%;margin-top: 20px" id="vip_div">
     <div class="demoTable">
         搜索：
         <div class="layui-inline">
             <input class="layui-input" name="keyword" id="demoReload" autocomplete="off"  placeholder="输入版本名">
         </div>
         <button class="layui-btn" data-type="reload" onclick="searchFliter()">搜索</button>
-        <button class="layui-btn" data-type="reload" onclick="windowsVersion()">Window版本</button>
-        <button class="layui-btn" data-type="reload" onclick="androidVersion()">Android版本</button>
-        <button class="layui-btn" data-type="reload" onclick="showAll()">所有版本</button>
+        <button class="layui-btn" data-type="reload" onclick="searchResource(1)">语文</button>
+        <button class="layui-btn" data-type="reload" onclick="searchResource(2)">数学</button>
+        <button class="layui-btn" data-type="reload" onclick="searchResource(3)">英语</button>
+        <button class="layui-btn" data-type="reload" onclick="searchResource(4)">其他</button>
+        <button class="layui-btn" data-type="reload" onclick="showAll()">所有</button>
 
-        <button class="layui-btn" data-type="reload" onclick="newVersion()" style="float: right">发布</button>
+        <button class="layui-btn" data-type="reload" onclick="releaseResource()" style="float: right">发布资源</button>
     </div>
 
     <table id="demo" lay-filter="test" style="overflow-y: scroll"></table>
@@ -44,6 +44,8 @@
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="remark">评论</a>
 </script>
 
 
@@ -53,16 +55,10 @@
         var table = layui.table;
 
         var listParams = new Array();
-        listParams[0] = "command=VERSION_LIST";
-        var timestamp = (new Date()).valueOf();
-        listParams[1] = "timestamp=" + timestamp;
-        listParams[2] = "logincode=" + $.cookie("OrgUserCode");
-        listParams[3] = "type=2";
-        listParams[4] = "orgsign=1111" ;
+        listParams[0] = "command=RESOURCE_LIST";
+        listParams[1] = "stype=0";
 
-        listParams = listParams.sort();
-        var urlCmd = $.buildGetParam("/api/system/?", listParams);
-        urlCmd = urlCmd + "&sign=" + $.signString(listParams);
+        var urlCmd = $.buildGetParam("/api/resource/?", listParams);
 
         //第一个实例
         orgTab = table.render({
@@ -73,23 +69,71 @@
             , page: true //开启分页
             , id: 'testReload'
             , cols: [[ //表头
-                {field: 'id', title: 'ID',sort: true,style:'hidden!important;'}
-                , {field: 'name', title: '版本名', sort: true}
-                , {field: 'type', title: '版本类型',}
-                , {field: 'version', title: '版本号',}
-                , {field: 'statename', title: '状态',}
-                , {field: 'regtime', title: '登记时间', sort: true}
+                    {field: 'id', title: 'ID',sort: true,style:'hidden!important;' ,width:100}
+                , {field: 'reslevel', title: '年级', sort: true ,width:100}
+                , {field: 'resclass', title: '科目',width:100}
+                , {field: 'price', title: '价格',width:100}
+                , {field: 'title', title: '标题',width:200}
+                , {field: 'previewurl', title: '试看连接',width:300}
                 , {fixed: 'right', title: '操作', align: 'center',width:300, toolbar: '#barDemo'}
             ]]
             , done: function (res, page, count) {
-                $("[data-field='type']").children().each(function () {
-                    if ($(this).text() == "2") {
-                        $(this).text("Windows版本");
+                $("[data-field='reslevel']").children().each(function () {
+                    if ($(this).text() == "1") {
+                        $(this).text("一年级");
                     }
-                    else if ($(this).text() == "1") {
-                        $(this).text("Android版本");
+                    else if ($(this).text() == "2") {
+                        $(this).text("二年级");
+                    }
+                    else if ($(this).text() == "3") {
+                        $(this).text("三年级");
+                    }
+                    else if ($(this).text() == "4") {
+                        $(this).text("四年级");
+                    }
+                    else if ($(this).text() == "5") {
+                        $(this).text("五年级");
+                    }
+                    else if ($(this).text() == "6") {
+                        $(this).text("六年级");
                     }
 
+
+                    else if ($(this).text() == "7") {
+                        $(this).text("初一");
+                    }
+                    else if ($(this).text() == "8") {
+                        $(this).text("初二");
+                    }
+                    else if ($(this).text() == "9") {
+                        $(this).text("初三");
+                    }
+
+
+                    else if ($(this).text() == "10") {
+                        $(this).text("高一");
+                    }
+                    else if ($(this).text() == "11") {
+                        $(this).text("高二");
+                    }
+                    else if ($(this).text() == "12") {
+                        $(this).text("高三");
+                    }
+                })
+
+                $("[data-field='resclass']").children().each(function () {
+                    if ($(this).text() == "1") {
+                        $(this).text("语文");
+                    }
+                    else if ($(this).text() == "2") {
+                        $(this).text("数学");
+                    }
+                    else if ($(this).text() == "3") {
+                        $(this).text("英语");
+                    }
+                    else if ($(this).text() == "4") {
+                        $(this).text("其他");
+                    }
                 })
             },
         });
@@ -99,34 +143,55 @@
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
                 if (layEvent === 'del') {
-                layer.confirm('你确定删除该版本？', function (index) {
-                    obj.del(); //删除对应行（tr）的DOM结构
-                    layer.close(index);
-                    //向服务端发送删除指令
-                    $.removeVersion(data);
-                });
+                    layer.confirm('你确定删除？', function (index) {
+                        obj.del(); //删除对应行（tr）的DOM结构
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        removeResource(data);
+                    });
             }
+            else if (layEvent === 'edit') {
+
+                }
+            else if (layEvent === 'remark') {
+
+                }
         });
     });
 
+    function removeResource (data) {
+        var listParams = new Array();
+        listParams[0] = "command=DELE_RESOURCE";
 
-    function windowsVersion() {
-        var pfliter = $("#demoReload").val();
-        orgTab.reload({
-            where: { //设定异步数据接口的额外参数，任意设
-                stype:"0"
-            }
-            , page: {
-                curr: 1 //重新从第 1 页开始
-            }
-        });
+        var postParm = new Array();
+        postParm[0] = "code=" + data.code;
+
+        var urlCmd = $.buildGetParam("/api/resource/?", listParams);
+
+        params = $.buildPostParam(postParm);
+
+        $.post(urlCmd, params,
+            function (data) {
+
+                var ErrorId = data.ErrorId;
+                var Result = data.Result;
+
+                if (ErrorId == 200) {
+                    alert("删除成功!");
+                }
+                else {
+                    alert(data.ErrorInfo);
+                }
+
+            },
+            "json");
     }
 
-    function androidVersion() {
+    function searchResource(type) {
         var pfliter = $("#demoReload").val();
         orgTab.reload({
             where: { //设定异步数据接口的额外参数，任意设
-                stype:"1"
+                stype:type
             }
             , page: {
                 curr: 1 //重新从第 1 页开始
@@ -158,12 +223,12 @@
     }
 
 
-    function newVersion() {
+    function releaseResource() {
              layer.open({
-            title: ['发布终端版本', 'font-size:13px;margin-top:10px;'],
+            title: ['发布资源', 'font-size:13px;margin-top:10px;'],
             type: 2,
-            area: ['440px', '400px'],
-            content: 'version_add.html'
+            area: ['860px', '700px'],
+            content: 'resource_add.html'
         });
 
     }

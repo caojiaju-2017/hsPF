@@ -60,6 +60,7 @@ class HsResources(models.Model):
     orgimage = models.CharField(db_column='OrgImage', max_length=64, blank=True, null=True)  # Field name made lowercase.
     orginfo = models.CharField(db_column='OrgInfo', max_length=640, blank=True, null=True)  # Field name made lowercase.
     previewurl = models.CharField(db_column='PreviewUrl', max_length=480, blank=True,null=True)  # Field name made lowercase.
+    state = models.IntegerField(db_column='State', blank=True, null=True)  # Field name made lowercase.
     class Meta:
         managed = False
         db_table = 'hs_resources'
