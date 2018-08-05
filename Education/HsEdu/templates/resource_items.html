@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="user-scalable=no">
+
+    <script src="/static/Public/jquery.js"></script>
+    <script src="/static/Public/md5.js"></script>
+    <script src="/static/Public/cookie.js"></script>
+    <script src="/static/Public/public.js"></script>
+
+    <script src="/static/js/resource.js"></script>
+
+    <script src="/static/threePart/LayUi/layui.js"></script>
+    <link rel="stylesheet" href="/static/threePart/Boost/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/threePart/LayUi/css/layui.css" media="all">
+
+    <style>
+        .layui-table-cell {
+            height: 29px;
+            line-height: 29px;
+        }
+    </style>
+</head>
+<body>
+
+<div style="background: #fff;height: 420px;width: 90%;margin-left:5%;margin-top: 10px" id="vip_div">
+    <table id="demo" lay-filter="test" style="overflow-y: scroll"></table>
+</div>
+
+<form class="layui-form" action="">
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">章节编号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="itemindex" id="itemindex" lay-verify="title" autocomplete="off" placeholder="请输入章节编号"
+                   class="layui-input" style="width: 200px" >
+        </div>
+    </div>
+
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">章节标题</label>
+        <div class="layui-input-inline">
+            <input type="text" name="itemtitle" id="itemtitle" lay-verify="title" autocomplete="off" placeholder="请输入标题"
+                   class="layui-input" style="width: 200px" >
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">描述</label>
+        <div class="layui-input-inline">
+            <textarea placeholder="请输入内容" class="layui-textarea" id="iteminfo"  style="width: 300px"></textarea>
+        </div>
+    </div>
+</form>
+        <div style="width: 80%;margin-top: 20px;cursor: pointer;margin-bottom: 20px;
+        background-color: #d58512;font-size: 18px;margin-left: 10%;
+        color: whitesmoke;height: 40px;border-radius: 20px;
+        line-height: 40px;text-align: center" onclick="$.addItems()">
+            保存
+        </div>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="edit">编辑</a>
+</script>
+
+
+<script>
+    var orgTab;
+    var code = null;
+    var itemcode = null;
+    layui.use('table', function () {
+        var table = layui.table;
+
+        var listParams = new Array();
+        listParams[0] = "command=RESOURCE_ITEMS";
+        listParams[1] = "code=" + code;
+
+        var urlCmd = $.buildGetParam("/api/resource/?", listParams);
+
+        //第一个实例
+        orgTab = table.render({
+            elem: '#demo'
+            , height: 400
+            ,limit:7
+            ,cellMinWidth:80
+            , url: urlCmd //数据接口
+            , page: true //开启分页
+            , id: 'testReload'
+            , cols: [[ //表头
+                 {field: 'index', title: '索引',width:50}
+                , {field: 'title', title: '标题', sort: true ,width:100}
+                , {field: 'introduce', title: '详情',width:120}
+                , {fixed: 'right', title: '操作', align: 'center',width:140, toolbar: '#barDemo'}
+            ]]
+        });
+
+        //监听工具条
+        table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'del') {
+                    layer.confirm('你确定删除？', function (index) {
+                        obj.del(); //删除对应行（tr）的DOM结构
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        $.deleItem(data);
+                    });
+            }
+            else if (layEvent === 'edit') {
+                    $.eidtResourceItem(data);
+                }
+        });
+    });
+
+    function searchResource(codeParam) {
+        code = codeParam;
+
+        orgTab.reload({
+            where: { //设定异步数据接口的额外参数，任意设
+                code:codeParam
+            }
+            , page: {
+                curr: 1 //重新从第 1 页开始
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

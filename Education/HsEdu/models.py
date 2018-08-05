@@ -51,7 +51,7 @@ class HsResources(models.Model):
 
     restitle = models.CharField(db_column='ResTitle', max_length=64, blank=True, null=True)  # Field name made lowercase.
     resinfo = models.CharField(db_column='ResInfo', max_length=2000, blank=True, null=True)  # Field name made lowercase.
-    resimage = models.CharField(db_column='ResImage', max_length=32, blank=True, null=True)  # Field name made lowercase.
+    resimage = models.CharField(db_column='ResImage', max_length=64, blank=True, null=True)  # Field name made lowercase.
 
     price = models.FloatField(db_column='Price', blank=True, null=True)  # Field name made lowercase.
     name = models.CharField(db_column='Name', max_length=32, blank=True, null=True)  # Field name made lowercase.
@@ -68,6 +68,7 @@ class HsResources(models.Model):
 
 class HsResourceInfo(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
+    code = models.CharField(db_column='Code', max_length=32, blank=True, null=True)  # Field name made lowercase.
     rescode = models.CharField(db_column='ResCode', max_length=32, blank=True, null=True)  # Field name made lowercase.
     index = models.IntegerField(db_column='Index', blank=True, null=True)  # Field name made lowercase.
     title = models.CharField(db_column='Title', max_length=64, blank=True, null=True)  # Field name made lowercase.

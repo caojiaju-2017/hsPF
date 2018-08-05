@@ -12,12 +12,167 @@ class ResourceApi(object):
             return ResourceApi.ResourceList(req,command)
         elif command == "ADD_RESOURCE".upper():
             return ResourceApi.AddResource(req,command)
-        elif command == "EDIT_RESOURCE".upper():
-            return ResourceApi.EditResource(req,command)
         elif command == "DELE_RESOURCE".upper():
             return ResourceApi.DeleResource(req,command)
+        elif command == "RESOURCE_ITEMS".upper():
+            return ResourceApi.ResourceItems(req, command)
+        elif command == "RESOURCE_CHANGE_STATE".upper():
+            return ResourceApi.ChangeState(req, command)
+        elif command == "RESOURCE_ADD_ITEM".upper():
+            return ResourceApi.ResourceAddItem(req, command)
+        elif command == "RESOURCE_DELE_ITEM".upper():
+            return ResourceApi.ResourceDeleItem(req, command)
+
+    @staticmethod
+    def ResourceDeleItem(request,cmd):
+        getParams = UtilHelper.getGetParams(request)
+        postParams = UtilHelper.getPostParams(request)
+
+        allParams = dict(getParams.items() + postParams.items())
+
+        commitDataList = []
+
+        delResourceItem = HsResourceInfo.objects.filter(code=allParams["code"]).first()
+
+        if not delResourceItem:
+            loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
+            return HttpResponse(loginResut)
+
+        commitDataList.append(CommitData(delResourceItem, 1))
+
+        # 事务提交
+        try:
+            result = commitCustomDataByTranslate(commitDataList)
+
+            if not result:
+                loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+                return HttpResponse(loginResut)
+        except Exception, ex:
+            loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+            return HttpResponse(loginResut)
 
 
+        loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
+        return HttpResponse(loginResut)
+
+    @staticmethod
+    def ResourceAddItem(request,cmd):
+        # 提取参数
+        getParams = UtilHelper.getGetParams(request)
+        postParams = UtilHelper.getPostParams(request)
+
+        allParams = dict(getParams.items() + postParams.items())
+
+
+        # 查询当前数据是否存在
+        resHandle = HsResources.objects.filter(code=allParams["code"],state=1).first()
+        if not resHandle:
+            loginResut = json.dumps({"ErrorInfo": "主资源不存在", "ErrorId": 20001, "Result": None})
+            return HttpResponse(loginResut)
+
+        resItem = HsResourceInfo.objects.filter(code=allParams["itemcode"]).first()
+
+        if not resItem:
+            resItem = HsResourceInfo()
+
+        resItem.code = UtilHelper.newUuid()
+        resItem.rescode = allParams["code"]
+        resItem.index = int(allParams["itemindex"])
+        resItem.title = allParams["itemtitle"]
+        resItem.introduce = allParams["iteminfo"]
+        resItem.restype = 0
+
+        commitDataList = []
+        commitDataList.append(CommitData(resItem, 0))
+
+        # 事务提交
+        try:
+            result = commitCustomDataByTranslate(commitDataList)
+
+            if not result:
+                loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+                return HttpResponse(loginResut)
+        except Exception, ex:
+            loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+            return HttpResponse(loginResut)
+
+
+        # 返回登录结果
+        loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
+        return HttpResponse(loginResut)
+
+    @staticmethod
+    def ChangeState(request,cmd):
+        getParams = UtilHelper.getGetParams(request)
+        postParams = UtilHelper.getPostParams(request)
+
+        allParams = dict(getParams.items() + postParams.items())
+
+        commitDataList = []
+
+        changeResource = HsResources.objects.filter(code=allParams["code"]).first()
+
+        if not changeResource:
+            loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
+            return HttpResponse(loginResut)
+
+        if changeResource.state == 1:
+            changeResource.state = 2
+        else:
+            changeResource.state = 1
+
+        commitDataList.append(CommitData(changeResource, 0))
+
+        # 事务提交
+        try:
+            result = commitCustomDataByTranslate(commitDataList)
+
+            if not result:
+                loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+                return HttpResponse(loginResut)
+        except Exception, ex:
+            loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
+            return HttpResponse(loginResut)
+
+
+        loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
+        return HttpResponse(loginResut)
+
+    @staticmethod
+    def ResourceItems(request,cmd):
+        # 提取参数
+        getParams = UtilHelper.getGetParams(request)
+        postParams = UtilHelper.getPostParams(request)
+        allParams = dict(getParams.items() + postParams.items())
+
+        resItems = HsResourceInfo.objects.filter(rescode=allParams["code"]).order_by("index")
+
+        limit = int(allParams["limit"])
+        pageIndex = int(allParams["page"])
+
+        returnList = []
+        oneProg = None
+        for index,oneRes in enumerate(resItems):
+            if index < limit * (pageIndex - 1) or index >= limit * pageIndex:
+                continue
+
+            oneOrgDict = {}
+            oneOrgDict['id'] = index + 1
+            oneOrgDict['code'] = oneRes.code
+            oneOrgDict['index'] = oneRes.index
+            oneOrgDict['title'] = oneRes.title
+            oneOrgDict['introduce'] = oneRes.introduce
+            returnList.append(oneOrgDict)
+
+        dictRtn = {}
+        dictRtn["code"] = 0
+        dictRtn["msg"] = "success"
+        dictRtn["count"] = len(resItems)
+        dictRtn["data"] = returnList
+
+        # 返回登录结果
+        lResut = json.dumps(dictRtn)
+        return HttpResponse(lResut)
 
     @staticmethod
     def ResourceList(request,cmd):
@@ -28,7 +183,7 @@ class ResourceApi(object):
         allParams = dict(getParams.items() + postParams.items())
 
 
-        resources = HsResources.objects.filter(state=1)
+        resources = HsResources.objects.filter(~Q(state=0))
 
 
         stype = int(allParams["stype"])
@@ -65,12 +220,24 @@ class ResourceApi(object):
                 continue
 
             oneOrgDict = {}
-            oneOrgDict['id'] = oneRes.id
+            oneOrgDict['id'] = index + 1
             oneOrgDict['code'] = oneRes.code
-            oneOrgDict['reslevel'] = oneRes.reslevel
+            oneOrgDict['resname'] = oneRes.restitle
+            oneOrgDict['resgrade'] = oneRes.resgrade
             oneOrgDict['resclass'] = oneRes.resclass
-            oneOrgDict['price'] = oneRes.price
-            oneOrgDict['title'] = oneRes.restitle
+            oneOrgDict['resprice'] = oneRes.price
+            oneOrgDict['respeople'] = oneRes.name
+            oneOrgDict['resviewcount'] = oneRes.viewcount
+            oneOrgDict['resorgname'] = oneRes.orgname
+            oneOrgDict['resinfo'] = oneRes.resinfo
+            oneOrgDict['orginfo'] = oneRes.orginfo
+
+            if oneRes.state == 1:
+                oneOrgDict['statename'] = "启用"
+            elif oneRes.state == 2:
+                oneOrgDict['statename'] = "未启用"
+
+            oneOrgDict['resimage'] =  '<a href="/static/Images/ResImage/%s.jpg" target="__blank">查看</a>' % oneRes.code.encode('utf-8')
 
 
             preUrl = None
@@ -79,6 +246,22 @@ class ResourceApi(object):
             else:
                 preUrl = '<a href="%s" target="__blank">查看</a>'%oneRes.previewurl.encode('utf-8')
             oneOrgDict['previewurl'] = preUrl
+            oneOrgDict['previewurlabsolute'] = oneRes.previewurl
+
+            resSecret = HsResourcesSecretInfo.objects.filter(rescode=oneRes.code).first()
+            if not resSecret:
+                pass
+            else:
+                downloadUrl = None
+                if not resSecret.downloadurl or len(resSecret.downloadurl) <= 0:
+                    downloadUrl = "未设置"
+                else:
+                    downloadUrl = '<a href="%s" target="__blank">查看</a>' % resSecret.downloadurl.encode('utf-8')
+
+                oneOrgDict['resdownloadurl'] = downloadUrl
+                oneOrgDict['resdownloadurlabsolute'] = resSecret.downloadurl
+                oneOrgDict['respassword'] = resSecret.dlpsswd
+
             returnList.append(oneOrgDict)
 
         dictRtn = {}
@@ -93,163 +276,55 @@ class ResourceApi(object):
 
     @staticmethod
     def AddResource(request,cmd):
-        '''
-        查询日程列表
-        :param request:
-        :return:
-        '''
-        LoggerHandle.writeLogDevelope("日程添加指令%s" % cmd.encode('utf-8'), request)
-
         # 提取参数
-        getParams = UtilHelper.UtilHelper.getGetParams(request)
-        postParams = UtilHelper.UtilHelper.getPostParams(request)
+        getParams = UtilHelper.getGetParams(request)
+        postParams = UtilHelper.getPostParams(request)
 
         allParams = dict(getParams.items() + postParams.items())
-        LoggerHandle.writeLogDevelope("指令GET参数" + str(getParams), request)
-        LoggerHandle.writeLogDevelope("指令POST参数" + str(postParams), request)
 
 
-        # 验证参数完整性
-        paramCompleteness,info = ParamCheckHelper.ParamCheckHelper.getParamModule(cmd).checkParamComplete(allParams)
+        # 查询当前数据是否存在
+        resHandle = HsResources.objects.filter(code=allParams["code"],state=1).first()
 
-        if paramCompleteness:
-            LoggerHandle.writeLogDevelope("参数完整,符合要求", request)
-        else:
-            LoggerHandle.writeLogDevelope("参数不完整，缺少：" + info, request)
-            loginResut = json.dumps({"ErrorInfo": "参数不足，缺少：" + info, "ErrorId": 20001, "Result": {}})
-            return HttpResponse(loginResut)
+        if not resHandle:
+            resHandle = HsResources()
 
-        # 参数验签
-        verifyResult = VerifyHelper.VerifyHelper.verifyParam(allParams)
-        if verifyResult:
-            LoggerHandle.writeLogDevelope("参数验签成功", request)
-        else:
-            LoggerHandle.writeLogDevelope("参数验签失败", request)
-            loginResut = json.dumps({"ErrorInfo": "参数验签失败", "ErrorId": 20002, "Result": {}})
-            return HttpResponse(loginResut)
+        resHandle.code = allParams["code"]
+        resHandle.resgrade = allParams["resgrade"]
+        resHandle.resclass = allParams["resclass"]
+        resHandle.reslevel = 2
+        resHandle.restitle = allParams["resname"]
+        resHandle.resinfo = allParams["resinfo"]
+        resHandle.resimage = allParams["code"] + ".jpg"
+        resHandle.price = allParams["resprice"]
 
-        # 检查logioncode是否为权力机构
-        acntHandle = ByAdAccount.objects.filter(account = allParams["logincode"]).first()
-
-        # 检查当前账号是否具有当前权限
-        if not acntHandle:
-            LoggerHandle.writeLogDevelope("当前账号数据异常", request)
-            loginResut = json.dumps({"ErrorInfo": "当前账号数据异常", "ErrorId": 20001, "Result": {}})
-            return HttpResponse(loginResut)
-
-        # 检查当前账户是否具有权限
-        resultPrivilegeSign = PrivilegeHelper.PrivilegeHelper.funcPrivCheck(cmd, acntHandle)
-        if not resultPrivilegeSign:
-            LoggerHandle.writeLogDevelope("权限受限", request)
-            loginResut = json.dumps({"ErrorInfo": "权限受限", "ErrorId": 20006, "Result": {}})
-            return HttpResponse(loginResut)
-
-        orgHandel = ByAdOrganization.objects.filter(code=allParams["orgsign"]).first()
-        if not orgHandel:
-            LoggerHandle.writeLogDevelope("当前单位数据异常", request)
-            loginResut = json.dumps({"ErrorInfo": "当前单位数据异常", "ErrorId": 20008, "Result": {}})
-            return HttpResponse(loginResut)
+        resHandle.name = allParams["respeople"]
+        resHandle.viewcount = allParams["resviewcount"]
+        resHandle.orgname = allParams["resorgname"]
+        resHandle.orgimage = allParams["code"]+ "_org.jpg"
+        resHandle.orginfo = allParams["orginfo"]
+        resHandle.previewurl = allParams["respreviewurl"]
+        resHandle.state = 1
 
 
-        # 判断当前是否存在重名日程
-        schList = BySchedules.objects.filter(orgcode=orgHandel,state=1)
+        resdownloadurl = allParams["resdownloadurl"]
+        respassword = allParams["respassword"]
 
-        for oneSch in schList:
-            if oneSch.name == allParams["name"]:
-                LoggerHandle.writeLogDevelope("日程名重复", request)
-                loginResut = json.dumps({"ErrorInfo": "日程名重复", "ErrorId": 20007, "Result": {}})
-                return HttpResponse(loginResut)
 
-        # 提取参数
-        type = int(allParams["type"])
-        name = allParams["name"]
-        schInfo = allParams["scheduleinfo"]
-
-        newSch = BySchedules()
-        newSch.code = UtilHelper.UtilHelper.newUuid()
-        newSch.type = type
-        newSch.name = name
-        newSch.orgcode =orgHandel
-        newSch.state = 1
-        newSch.regtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         commitDataList = []
-        commitDataList.append(CommitData(newSch, 0))
-        # try:
-        #     newSch.save()
-        # except Exception,ex:
-        #     loginResut = json.dumps({"ErrorInfo": "日程数据存储失败", "ErrorId": 20007, "Result": {}})
-        #     return HttpResponse(loginResut)
+        commitDataList.append(CommitData(resHandle, 0))
 
+        commitDataList.append(CommitData(HsResourcesSecretInfo.objects.filter(rescode=allParams["code"]),1))
 
-        schInfoList = schInfo.split("&")
-        newDict = {}
-        for oneSch in schInfoList:
-            if not oneSch or len(oneSch) <= 0:
-                continue
-            splitInfo = oneSch.split("|")
-
-            if len(splitInfo) != 2:
-                continue
-
-            keyValue = splitInfo[0]
-            timeValues = splitInfo[1]
-
-            # 分拆开始时间   结束时间
-            timeSplit = timeValues.split("-")
-            if len(timeSplit) != 2:
-                continue
-
-            # 构造写入指令--ByScheduleDetailPre--- 循环关键明细 日期或周序号或日期序号
-            detailPro = None
-            # if type == 0:
-            #     detailPro = ByScheduleDetailPre.objects.filter(scode = newSch,date=keyValue).first()
-            # elif type == 1:
-            #     detailPro = ByScheduleDetailPre.objects.filter(scode=newSch, week=keyValue).first()
-            # elif type == 2:
-            #     detailPro = ByScheduleDetailPre.objects.filter(scode=newSch, nomon =keyValue).first()
-
-
-            # 创建
-            detailProCode = None
-            if not newDict.has_key(keyValue):
-                detailPro = ByScheduleDetailPre()
-                detailPro.code = UtilHelper.UtilHelper.newUuid()
-                detailPro.week = -1
-                detailPro.nomon = -1
-                if type == 0:
-                    detailPro.date = keyValue
-                elif type == 1:
-                    detailPro.week = keyValue
-                elif type == 2:
-                    detailPro.nomon = keyValue
-
-                # detailPro.scode = BySchedules.objects.filter(code= newSch.code).first()
-                detailPro.scode_id = newSch.code
-                commitDataList.append(CommitData(detailPro, 0))
-
-                newDict[keyValue] = detailPro.code
-                detailProCode = detailPro.code
-                # try:
-                #     detailPro.save()
-                # except Exception,ex:
-                #     loginResut = json.dumps({"ErrorInfo": "日程数据存储失败", "ErrorId": 20007, "Result": {}})
-                #     return HttpResponse(loginResut)
-            else:
-                detailProCode = newDict[keyValue]
-            # 创建日程明细---- ByScheduleDetail
-            schDetail = ByScheduleDetail()
-            schDetail.code = UtilHelper.UtilHelper.newUuid()
-            schDetail.scode_id = detailProCode
-            schDetail.starttime = timeSplit[0]
-            schDetail.stoptime = timeSplit[1]
-            commitDataList.append(CommitData(schDetail, 0))
-
-            pass
-
+        newSecretInfo = HsResourcesSecretInfo()
+        newSecretInfo.rescode = allParams["code"]
+        newSecretInfo.downloadurl = resdownloadurl
+        newSecretInfo.dlpsswd = respassword
+        commitDataList.append(CommitData(newSecretInfo, 0))
 
         # 事务提交
         try:
-            result = DBHelper.commitCustomDataByTranslate(commitDataList)
+            result = commitCustomDataByTranslate(commitDataList)
 
             if not result:
                 loginResut = json.dumps({"ErrorInfo": "数据库操作失败", "ErrorId": 99999, "Result": None})
@@ -296,156 +371,40 @@ class ResourceApi(object):
         loginResut = json.dumps({"ErrorInfo": "操作成功", "ErrorId": 200, "Result": None})
         return HttpResponse(loginResut)
 
-
     @staticmethod
-    def EditResource(request,cmd):
-        '''
-        终端编辑
-        :param request:
-        :return:
-        '''
-
-        LoggerHandle.writeLogDevelope("收到终端编辑指令%s"%cmd.encode('utf-8'), request)
-        LoggerHandle.writeLog("%s" % cmd.encode('utf-8'), request)
-
+    @csrf_exempt
+    def uploadFile(request):
+        code = None
         # 提取参数
-        getParams = UtilHelper.UtilHelper.getGetParams(request)
-        postParams = UtilHelper.UtilHelper.getPostParams(request)
+        getParams = UtilHelper.getGetParams(request)
 
-        allParams = dict(getParams.items()+postParams.items())
-        LoggerHandle.writeLogDevelope("指令GET参数" + str(getParams), request)
-        LoggerHandle.writeLogDevelope("指令POST参数" + str(postParams), request)
-
-        # 验证参数完整性
-        paramCompleteness,info = ParamCheckHelper.ParamCheckHelper.getParamModule(cmd).checkParamComplete(allParams)
-
-        if paramCompleteness:
-            LoggerHandle.writeLogDevelope("参数完整,符合要求", request)
-        else:
-            LoggerHandle.writeLogDevelope("参数不完整，缺少：" + info, request)
-            loginResut = json.dumps({"ErrorInfo": "参数不足，缺少：" + info, "ErrorId": 20001, "Result": {}})
+        if not getParams.has_key("code") or not getParams.has_key("type"):
+            loginResut = json.dumps({"ErrorInfo": "参数错误", "ErrorId": 2999, "Result": {}})
             return HttpResponse(loginResut)
 
-        # 参数验签
-        verifyResult = VerifyHelper.VerifyHelper.verifyParam(allParams)
-        if verifyResult:
-            LoggerHandle.writeLogDevelope("参数验签成功", request)
-        else:
-            LoggerHandle.writeLogDevelope("参数验签失败", request)
-            loginResut = json.dumps({"ErrorInfo": "参数验签失败", "ErrorId": 20002, "Result": {}})
-            return HttpResponse(loginResut)
+        destination = os.path.join(STATIC_ROOT, "Images")
+        destination = os.path.join(destination, "ResImage")
 
+        fName = None
+        code = getParams["code"]
+        type = int(getParams["type"])
 
-        # 检查logioncode是否为权力机构
-        acntHandle = ByAdAccount.objects.filter(account = allParams["logincode"]).first()
+        if type == 0:
+            fName = code + "_org.jpg"
+        elif type == 1:
+            fName = code + ".jpg"
 
-        # 检查当前账号是否具有当前权限
-        if not acntHandle:
-            LoggerHandle.writeLogDevelope("当前账号数据异常", request)
-            loginResut = json.dumps({"ErrorInfo": "当前账号数据异常", "ErrorId": 20001, "Result": {}})
-            return HttpResponse(loginResut)
+        destination = open(os.path.join(destination, fName), 'wb+')  # 打开特定的文件进行二进制的写操作
+        myFile = request.FILES.get("file", None)  # 获取上传的文件，如果没有文件，则默认为None
+        for chunk in myFile.chunks():  # 分块写入文件
+            destination.write(chunk)
+        destination.close()
 
-        # 检查当前账户是否具有权限
-        resultPrivilegeSign = PrivilegeHelper.PrivilegeHelper.funcPrivCheck(cmd, acntHandle)
-        if not resultPrivilegeSign:
-            LoggerHandle.writeLogDevelope("权限受限", request)
-            loginResut = json.dumps({"ErrorInfo": "权限受限", "ErrorId": 20006, "Result": {}})
-            return HttpResponse(loginResut)
+        dict={}
+        dict["code"] = 0
 
-        # 检查当前账户是否具有权限
-        ownerOrgHandel = ByAdOrganization.objects.filter(code = allParams["orgcode"]).first()
-        if not ownerOrgHandel:
-            LoggerHandle.writeLogDevelope("归属单位数据异常", request)
-            loginResut = json.dumps({"ErrorInfo": "归属单位数据异常", "ErrorId": 20006, "Result": {}})
-            return HttpResponse(loginResut)
-
-        currentAllOrgs = OrgTree.getOrgTreeObjects(ownerOrgHandel)
-        # 检查该MAC地址是否已经被注册
-        currentAllOrgs.append(ownerOrgHandel)
-
-        playerList = None
-        for oneOrg in currentAllOrgs:
-            if not playerList :
-                playerList = ByAdPlayers.objects.filter(orgcode=oneOrg,state=1).order_by("-id")
-            else:
-                playerList = playerList | ByAdPlayers.objects.filter(orgcode=oneOrg,state=1).order_by("-id")
-
-        # 当前单位下检查名字唯一性
-        for onePlay in playerList:
-            if onePlay.type == 0:  #led设备，
-                continue
-            if onePlay.name == allParams["name"]:
-                LoggerHandle.writeLogDevelope("终端名重复", request)
-                loginResut = json.dumps({"ErrorInfo": "终端名重复", "ErrorId": 20006, "Result": {}})
-                return HttpResponse(loginResut)
-
-
-        # 全网机构内检查ip和mac的合法性
-        orgRootTemp = ByAdOrganization.objects.filter(code = allParams["orgsign"]).first()
-        currentAllOrgsTemps = OrgTree.getOrgTreeObjects(orgRootTemp)
-        # 检查该MAC地址是否已经被注册
-        currentAllOrgsTemps.append(orgRootTemp)
-        playerListTempsContainMe = None
-        for oneOrg in currentAllOrgsTemps:
-            if not playerListTempsContainMe :
-                playerListTempsContainMe = ByAdPlayers.objects.filter(orgcode=oneOrg,state=1).order_by("-id")
-            else:
-                playerListTempsContainMe = playerListTempsContainMe | ByAdPlayers.objects.filter(orgcode=oneOrg,state=1).order_by("-id")
-
-        # 自我排除
-        playerListTemps = playerListTempsContainMe.filter(~Q(code = allParams["code"]))
-        for onePlay in playerListTemps:
-            if onePlay.type == 0:  #led设备，
-                continue
-
-            if onePlay.code == allParams["code"]:
-                continue
-
-            if onePlay.mac == allParams["mac"]:
-                LoggerHandle.writeLogDevelope("MAC地址已被注册", request)
-                loginResut = json.dumps({"ErrorInfo": "MAC地址已被注册", "ErrorId": 20006, "Result": {}})
-                return HttpResponse(loginResut)
-            if onePlay.ipaddress == allParams["ipaddress"]:
-                LoggerHandle.writeLogDevelope("IP地址冲突", request)
-                loginResut = json.dumps({"ErrorInfo": "IP地址冲突", "ErrorId": 20006, "Result": {}})
-                return HttpResponse(loginResut)
-
-        regPlayer = playerListTempsContainMe.filter(code = allParams["code"]).first()
-        # 如果已经注册--- 直接返回成功
-        # regPlayer = ByAdPlayers()
-        # regPlayer.code = UtilHelper.UtilHelper.newUuid()
-        regPlayer.orgcode = ownerOrgHandel
-        # regPlayer.orgcode_id = allParams["orgsign"]
-        regPlayer.name = allParams["name"]
-        # regPlayer.gcode = None  # 新终端未分组
-        regPlayer.ipaddress = allParams["ipaddress"]
-        regPlayer.mac = allParams["mac"]
-        # regPlayer.lastcmd = None
-        # regPlayer.lastcmdresult = None
-        # regPlayer.lastlogintime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        # regPlayer.online = 1
-        # regPlayer.pcode = None
-        # regPlayer.terminalsign = regPlayer.code
-        # regPlayer.type = 0
-        # regPlayer.state = 1
-        regPlayer.port = allParams["port"]
-        # regPlayer.ledtype = allParams["ledtype"]
-
-        try:
-            regPlayer.save()
-        except Exception, ex:
-            LoggerHandle.writeLogDevelope("注册失败", request)
-            loginResut = json.dumps({"ErrorInfo": "注册失败", "ErrorId": 20001, "Result": {}})
-            return HttpResponse(loginResut)
-
-        # 返回登录结果
-        loginResut = json.dumps({"ErrorInfo": "终端登记成功，请联系管理员授权", "ErrorId": 200, "Result": None})
-        return HttpResponse(loginResut)
-
-
-
-
-
+        lResut = json.dumps(dict)
+        return HttpResponse(lResut)
 
     # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     @staticmethod
@@ -465,3 +424,9 @@ class ResourceApi(object):
     def OpenManageResource(request):
         renterDict = {}
         return render(request, 'resource_add.html',renterDict )
+
+    @staticmethod
+    @csrf_exempt
+    def OpenResourceItems(request):
+        renterDict = {}
+        return render(request, 'resource_items.html',renterDict )

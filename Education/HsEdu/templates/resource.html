@@ -10,20 +10,22 @@
     <script src="/static/Public/cookie.js"></script>
     <script src="/static/Public/public.js"></script>
 
+    <script src="/static/js/resource.js"></script>
+
     <script src="/static/threePart/LayUi/layui.js"></script>
     <link rel="stylesheet" href="/static/threePart/Boost/bootstrap.css"/>
     <link rel="stylesheet" href="/static/threePart/LayUi/css/layui.css" media="all">
 
     <style>
-        .layui-table-cell{
-    height:30px;
-    line-height:30px;
-}
+        .layui-table-cell {
+            height: 29px;
+            line-height: 29px;
+        }
     </style>
 </head>
 <body>
 
-<div style="background: #fff;height: 600px;width: 90%;margin-left:5%;margin-top: 20px" id="vip_div">
+<div style="background: #fff;height: 600px;width: 90%;margin-left:5%;margin-top: 10px" id="vip_div">
     <div class="demoTable">
         搜索：
         <div class="layui-inline">
@@ -43,9 +45,11 @@
 </div>
 
 <script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="sections">章节</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="remark">评论</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="cstate">启/停</a>
 </script>
 
 
@@ -63,22 +67,30 @@
         //第一个实例
         orgTab = table.render({
             elem: '#demo'
-            , height: 600
+            , height: 900
+            ,limit:20
             ,cellMinWidth:80
             , url: urlCmd //数据接口
             , page: true //开启分页
             , id: 'testReload'
             , cols: [[ //表头
                     {field: 'id', title: 'ID',sort: true,style:'hidden!important;' ,width:100}
-                , {field: 'reslevel', title: '年级', sort: true ,width:100}
+                , {field: 'resgrade', title: '年级', sort: true ,width:100}
                 , {field: 'resclass', title: '科目',width:100}
-                , {field: 'price', title: '价格',width:100}
-                , {field: 'title', title: '标题',width:200}
-                , {field: 'previewurl', title: '试看连接',width:300}
-                , {fixed: 'right', title: '操作', align: 'center',width:300, toolbar: '#barDemo'}
+                , {field: 'resprice', title: '价格',width:100}
+                , {field: 'resname', title: '标题',width:240}
+                , {field: 'resimage', title: '资源图',width:100}
+                , {field: 'previewurl', title: '试看链接',width:80}
+                , {field: 'resdownloadurl', title: '下载链接',width:80}
+                , {field: 'respassword', title: '密码',width:80}
+                , {field: 'respeople', title: '发布者',width:100}
+                , {field: 'resorgname', title: '归属单位',width:100}
+                , {field: 'resviewcount', title: '查看次数',width:100}
+                , {field: 'statename', title: '状态',width:100}
+                , {fixed: 'right', title: '操作', align: 'center',width:280, toolbar: '#barDemo'}
             ]]
             , done: function (res, page, count) {
-                $("[data-field='reslevel']").children().each(function () {
+                $("[data-field='resgrade']").children().each(function () {
                     if ($(this).text() == "1") {
                         $(this).text("一年级");
                     }
@@ -151,10 +163,17 @@
                     });
             }
             else if (layEvent === 'edit') {
-
+                    eidtResource(data);
                 }
             else if (layEvent === 'remark') {
 
+                }
+                else if (layEvent == "sections") {
+                    openSections(data);
+                }
+                else if (layEvent == "cstate")
+                {
+                    $.changeState(data);
                 }
         });
     });
@@ -227,10 +246,37 @@
              layer.open({
             title: ['发布资源', 'font-size:13px;margin-top:10px;'],
             type: 2,
-            area: ['860px', '700px'],
+            area: ['500px', '900px'],
             content: 'resource_add.html'
         });
 
+    }
+    function eidtResource(datas) {
+             layer.open({
+            title: ['编辑资源', 'font-size:13px;margin-top:10px;'],
+            type: 2,
+            area: ['500px', '900px'],
+            content: 'resource_add.html',
+            success: function (layero, index) {
+                var iframeWin = window[layero.find('iframe')[0]['name']];
+                iframeWin.setDatas(datas);
+            }
+        });
+
+    }
+
+
+    function  openSections(datas) {
+        layer.open({
+            title: ['编辑资源目录', 'font-size:13px;margin-top:10px;'],
+            type: 2,
+            area: ['500px', '780px'],
+            content: 'resource_items.html',
+            success: function (layero, index) {
+                var iframeWin = window[layero.find('iframe')[0]['name']];
+                iframeWin.searchResource(datas.code);
+            }
+        });
     }
 
 </script>

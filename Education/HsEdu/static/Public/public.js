@@ -105,7 +105,7 @@ $.extend({
         return rtnUrl;
     },
     buildPostParam :function (params) {
-        var rtnDict = {}
+        var rtnDict = {};
         for (var index = 0 ; index < params.length ; index++)
         {
             var oneParam = params[index];

@@ -122,6 +122,9 @@ urlpatterns = [
     url(r'^login_admin.html', ResourceApi.LoginAdmin),  # 登陆管理界面
     url(r'^resource.html', ResourceApi.OpenSchoolPCHome),  # 资源主页
     url(r'^resource_add.html', ResourceApi.OpenManageResource),  # 资源主页
+    url(r'^resource_items.html', ResourceApi.OpenResourceItems),  # 资源主页
+
     url(r'^api/resource/$',ResourceApi.CommandDispatch),
+    url(r'^uploadimage/$', ResourceApi.uploadFile),
 
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

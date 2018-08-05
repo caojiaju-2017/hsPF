@@ -10,163 +10,203 @@
     <script src="/static/Public/cookie.js"></script>
     <script src="/static/Public/public.js"></script>
 
+
+
     <script src="/static/threePart/LayUi/layui.js"></script>
+
     <link rel="stylesheet" href="/static/threePart/Boost/bootstrap.css"/>
     <link rel="stylesheet" href="/static/threePart/LayUi/css/layui.css" media="all">
 </head>
 <body style="text-align: center">
 
 <form class="layui-form" action="">
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
+    <div class="layui-form-item" style="width: 460px;margin-top: 20px">
+        <label class="layui-form-label" style="width: 130px">资源名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="resname" id="resname" lay-verify="resname" autocomplete="off" placeholder="请输入资源名"
+                   class="layui-input" style="width: 200px">
         </div>
+    </div>
 
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">资源主图</label>
+        <div class="layui-input-inline">
+            <div class="layui-upload-drag" id="resimage">
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
             </div>
         </div>
     </div>
 
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">年级</label>
+        <div class="layui-input-inline" style="width: 200px">
+            <select name="resgrade" lay-filter="resgrade" id="resgrade">
+                <option value=""></option>
+                <option value="1">一年级</option>
+                <option value="2">二年级</option>
+                <option value="3">三年级</option>
+                <option value="4">四年级</option>
+                <option value="5">五年级</option>
+                <option value="6">六年级</option>
+                <option value="7">初一</option>
+                <option value="8">初二</option>
+                <option value="9">初三</option>
+                <option value="10">高一</option>
+                <option value="11">高二</option>
+                <option value="12">高三</option>
+            </select>
         </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">科目</label>
+        <div class="layui-input-inline" style="width: 200px;">
+            <select name="factory" lay-filter="resclass" id="resclass">
+                <option value=""></option>
+                <option value="1">语文</option>
+                <option value="2">数学</option>
+                <option value="3">英语</option>
+                <option value="4">其他</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">价格</label>
+        <div class="layui-input-inline">
+            <input type="text" name="resprice" id="resprice" lay-verify="title" autocomplete="off" placeholder="请输入资源价格"
+                   class="layui-input" style="width: 200px">
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">发布者</label>
+        <div class="layui-input-inline">
+            <input type="text" name="respeople" id="respeople" lay-verify="title" autocomplete="off" placeholder="请输入发布者"
+                   class="layui-input" style="width: 200px">
+        </div>
+    </div>
 
 
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">查阅次数</label>
+        <div class="layui-input-inline">
+            <input type="text" name="resviewcount" id="resviewcount" lay-verify="title" autocomplete="off"
+                   placeholder="请输入次数" class="layui-input" style="width: 200px">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">下载连接</label>
+        <div class="layui-input-inline">
+            <input type="text" name="resdownloadurl" id="resdownloadurl" lay-verify="title" autocomplete="off"
+                   placeholder="请输入下载连接" class="layui-input" style="width: 200px">
+        </div>
+        <div class="layui-input-inline" style="background-color: #1E9FFF;color: #f0f0f0;font-size: 16px;cursor: pointer;
+        width: 30px;height: 30px;line-height: 30px;border-radius: 15px" onclick="$.openDownLink()">验</div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+
+        <label class="layui-form-label" style="width: 130px">提取密码</label>
+        <div class="layui-input-inline">
+            <input type="text" name="respassword" id="respassword" lay-verify="title" autocomplete="off" placeholder="请输入资源提取密码"
+                   class="layui-input" style="width: 200px">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">预览地址</label>
+        <div class="layui-input-inline">
+            <input type="text" name="respreviewurl" id="respreviewurl" lay-verify="title" autocomplete="off"
+                   placeholder="请输入预览地址" class="layui-input" style="width: 200px">
+        </div>
+        <div class="layui-input-inline" style="background-color: #1E9FFF;color: #f0f0f0;font-size: 16px;cursor: pointer;
+        width: 30px;height: 30px;line-height: 30px;border-radius: 15px" onclick="$.openLink()">看</div>
+    </div>
+
+
+    <div class="layui-form-item" style="width: 460px">
+
+        <label class="layui-form-label" style="width: 130px">资源描述</label>
+        <div class="layui-input-inline">
+            <textarea placeholder="请输入内容" class="layui-textarea" style="width: 300px" id="resinfo"></textarea>
+        </div>>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">归属单位</label>
+        <div class="layui-input-inline">
+            <input type="text" name="resorgname" id="resorgname" lay-verify="title" autocomplete="off" placeholder="请输入归属单位"
+                   class="layui-input" style="width: 200px" >
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">单位主图</label>
+        <div class="layui-input-inline">
+            <div class="layui-upload-drag" id="orgimage">
+                <i class="layui-icon"></i>
+                <p>点击上传，或将文件拖拽到此处</p>
             </div>
         </div>
     </div>
 
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
-        </div>
-
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
-        </div>
-
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
-        </div>
-
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
-        </div>
-
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
-            </div>
-        </div>
-    </div>
-
-    <div class="layui-form-item" style="width: 100%">
-        <div style="margin-top: 10px;width: 50%;float: left">
-            <label class="layui-form-label" style="width: 30%">LED终端名</label>
-            <div class="layui-input-block">
-                <input type="text" name="city" id="name" lay-verify="title" autocomplete="off" placeholder="请输入LED终端名"
-                       class="layui-input" style="width: 70%">
-            </div>
-        </div>
-
-
-        <div style="margin-top: 10px;width: 50%;float: right;">
-            <label class="layui-form-label" style="width: 30%">IP地址</label>
-            <div class="layui-input-block">
-                <input type="text" name="profession" id="ipaddress" lay-verify="title" autocomplete="off"
-                       placeholder="请输入IP地址" class="layui-input" style="width: 70%">
-            </div>
+    <div class="layui-form-item" style="width: 460px">
+        <label class="layui-form-label" style="width: 130px">单位描述</label>
+        <div class="layui-input-inline">
+            <textarea placeholder="请输入内容" class="layui-textarea" id="orginfo"  style="width: 300px"></textarea>
         </div>
     </div>
 </form>
 
-<div class="layui-form-item" style="margin-top: 10px">
-    {#    <label class="layui-form-label" style="width: 130px">联系电话</label>#}
-    <div class="layui-input-block">
-        <div style="width: 120px;margin-top: 20px;cursor: pointer;background-color: #d58512;font-size: 18px;
-        color: whitesmoke;height: 40px;border-radius: 20px;line-height: 40px" onclick="$.saveInfo()">保存
+        <div style="width: 80%;margin-top: 20px;cursor: pointer;margin-bottom: 20px;
+        background-color: #d58512;font-size: 18px;margin-left: 10%;
+        color: whitesmoke;height: 40px;border-radius: 20px;
+        line-height: 40px" onclick="$.saveInfo()">
+            保存
         </div>
 
-    </div>
-</div>
-
-
+ <script src="/static/js/resource_add.js"></script>
 <script>
+
     layui.use('form', function () {
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
         form.render();
     });
+
+    layui.use('upload', function() {
+        var $ = layui.jquery
+            , upload = layui.upload;
+
+        //拖拽上传
+        upload.render({
+            elem: '#orgimage'
+            , url: '/uploadimage/?code=' + code + "&type=0"
+            , done: function (res) {
+                console.log(res)
+            }
+        });
+
+        //拖拽上传
+        upload.render({
+            elem: '#resimage'
+            , url: '/uploadimage/?code=' + code + "&type=1"
+            , done: function (res) {
+                console.log(res)
+            }
+        });
+
+    });
+
+
+    function  setDatas(datas) {
+        $.loadResource(datas);
+    }
+
 </script>
 </body>
 </html>
