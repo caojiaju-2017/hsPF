@@ -158,51 +158,51 @@ $.extend({
         }
         else if(type == 2)
         {
-            if (index == 0)
+            if (index == 1)
             {
                 return "一年级";
             }
-            else if(index == 1)
+            else if(index == 2)
             {
                 return "二年级";
             }
-            else if (index == 2)
+            else if (index == 3)
             {
                 return "三年级"
             }
-            else if (index == 3)
+            else if (index == 4)
             {
                 return "四年级";
             }
-            else if(index == 4)
+            else if(index == 5)
             {
                 return "五年级";
             }
-            else if (index == 5)
+            else if (index == 6)
             {
                 return "六年级"
             }
-            else if (index == 6)
+            else if (index == 7)
             {
                 return "七年级";
             }
-            else if(index == 7)
+            else if(index == 8)
             {
                 return "八年级";
             }
-            else if (index == 8)
+            else if (index == 9)
             {
                 return "九年级"
             }
-            else if (index == 9)
+            else if (index == 10)
             {
                 return "高一";
             }
-            else if(index == 10)
+            else if(index == 11)
             {
                 return "高二";
             }
-            else if(index == 11)
+            else if(index == 12)
             {
                 return "高三";
             }

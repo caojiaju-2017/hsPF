@@ -17,100 +17,97 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45316455">
+    <splitter split-orientation="horizontal" split-proportion="0.5302491">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.7767296">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/HsEduServer/urls.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="262">
-                      <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="WebCenterApi.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/HsEdu/Api/WebCenterApi.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="272">
-                      <caret line="372" column="31" lean-forward="false" selection-start-line="367" selection-start-column="12" selection-end-line="372" selection-end-column="31" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="ResourceApi.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/HsEdu/Api/ResourceApi.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="327">
-                      <caret line="161" column="29" lean-forward="false" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="29" />
-                      <folding>
-                        <element signature="e#46#67#0" expanded="true" />
-                        <element signature="e#2217#3756#0" expanded="false" />
-                        <element signature="e#3818#5022#0" expanded="false" />
-                        <element signature="e#6267#9693#0" expanded="false" />
-                        <element signature="e#9755#11979#0" expanded="false" />
-                        <element signature="e#12042#13140#0" expanded="false" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="resource.html" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="203">
-                      <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="217" selection-end-column="11" />
-                      <folding>
-                        <element signature="e#7049#7702#0#HTML" expanded="false" />
-                        <element signature="e#8007#8225#0#HTML" expanded="false" />
-                        <element signature="e#8254#8508#0#HTML" expanded="false" />
-                        <element signature="e#8542#8752#0#HTML" expanded="false" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="ResourceApi.py" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/HsEdu/Api/ResourceApi.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="250">
-                      <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
-                      <folding>
-                        <element signature="e#46#67#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HsEdu/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="418">
+                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HsEdu/static/js/home/home.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="513">
+                  <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+                  <folding>
+                    <marker date="1533302932696" expanded="true" signature="335:402" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="536:548" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="705:820" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="941:978" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1068:1084" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1170:1185" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1288:1303" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1403:1418" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1616:1694" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="1913:1991" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="2217:2295" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="2556:2621" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="2711:2752" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="2928:2973" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="3211:3372" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="3537:3562" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="8574:8589" ph="..." />
+                    <marker date="1533302932696" expanded="true" signature="8686:8701" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CustomApi.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HsEdu/Api/Custom/CustomApi.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3952">
+                  <caret line="208" column="25" lean-forward="false" selection-start-line="208" selection-start-column="25" selection-end-line="208" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PublicService.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HsEdu/Api/PublicService.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="344">
+                  <caret line="243" column="22" lean-forward="true" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HsEduServer/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="243">
+                  <caret line="85" column="27" lean-forward="false" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HsEdu/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="335">
+                <state relative-caret-position="1387">
                   <caret line="75" column="11" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="resource_add.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="resource_add.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/HsEdu/static/js/resource_add.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="151" selection-end-column="6" />
+                <state relative-caret-position="529">
+                  <caret line="226" column="28" lean-forward="false" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
                   <folding>
                     <element signature="e#2246#4132#0" expanded="false" />
                   </folding>
@@ -118,20 +115,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="resource.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/HsEdu/static/js/resource.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="171">
-                  <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="public.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HsEdu/static/Public/public.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
+                <state relative-caret-position="2014">
                   <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
                   <folding>
                     <marker date="1533468972149" expanded="true" signature="259:279" ph="..." />
@@ -145,14 +132,9 @@
           <file leaf-file-name="resource_items.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource_items.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="404">
+                <state relative-caret-position="2109">
                   <caret line="114" column="11" lean-forward="true" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#textarea#0;n#div#0;n#div#2;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -160,11 +142,9 @@
           <file leaf-file-name="resource_add.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource_add.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                <state relative-caret-position="817">
+                  <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="70" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -185,10 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clickLetter</find>
-      <find>word_div</find>
-      <find>left_control</find>
-      <find>stop_icon</find>
       <find>GAME_PAY</find>
       <find>你的账号</find>
       <find>开发者</find>
@@ -215,6 +191,10 @@
       <find>changeState</find>
       <find>resimage</find>
       <find>searchResource</find>
+      <find>二年级</find>
+      <find>res_item_div</find>
+      <find>Query_Res</find>
+      <find>oneResourceTmpl</find>
     </findStrings>
     <replaceStrings>
       <replace>.show();</replace>
@@ -228,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/HsEdu/templates/three/duomianti.html" />
         <option value="$PROJECT_DIR$/HsEdu/templates/three/duomianti2.html" />
         <option value="$PROJECT_DIR$/help.txt" />
         <option value="$PROJECT_DIR$/HsEdu/templates/home/usercenter/res_order.html" />
@@ -252,7 +231,6 @@
         <option value="$PROJECT_DIR$/HsEdu/templates/home/res/res_detail.html" />
         <option value="$PROJECT_DIR$/HsEdu/static/js/home/res/res.js" />
         <option value="$PROJECT_DIR$/HsEdu/Api/Game/WordInit.py" />
-        <option value="$PROJECT_DIR$/HsEdu/Api/PublicService.py" />
         <option value="$PROJECT_DIR$/HsEdu/static/js/home/home.js" />
         <option value="$PROJECT_DIR$/HsEdu/templates/index.html" />
         <option value="$PROJECT_DIR$/HsShareData.py" />
@@ -265,20 +243,22 @@
         <option value="$PROJECT_DIR$/HsEdu/Api/Game/GameApi.py" />
         <option value="$PROJECT_DIR$/HsEdu/Api/WebCenterApi.py" />
         <option value="$PROJECT_DIR$/include.py" />
-        <option value="$PROJECT_DIR$/HsEdu/Api/Custom/CustomApi.py" />
         <option value="$PROJECT_DIR$/HsEdu/templates/everyday/ed_read.html" />
         <option value="$PROJECT_DIR$/HsEdu/templates/everyday/ed_sentence.html" />
         <option value="$PROJECT_DIR$/HsEdu/templates/everyday/ed_word.html" />
         <option value="$PROJECT_DIR$/HsEdu/templates/login_admin.html" />
         <option value="$PROJECT_DIR$/HsEdu/templates/resource_add.html" />
         <option value="$PROJECT_DIR$/HsEdu/static/js/resource_add.js" />
-        <option value="$PROJECT_DIR$/HsEduServer/urls.py" />
         <option value="$PROJECT_DIR$/HsEdu/static/Public/public.js" />
         <option value="$PROJECT_DIR$/HsEdu/templates/resource.html" />
         <option value="$PROJECT_DIR$/HsEdu/models.py" />
         <option value="$PROJECT_DIR$/HsEdu/Api/ResourceApi.py" />
         <option value="$PROJECT_DIR$/HsEdu/templates/resource_items.html" />
         <option value="$PROJECT_DIR$/HsEdu/static/js/resource.js" />
+        <option value="$PROJECT_DIR$/HsEduServer/urls.py" />
+        <option value="$PROJECT_DIR$/HsEdu/Api/Custom/CustomApi.py" />
+        <option value="$PROJECT_DIR$/HsEdu/Api/PublicService.py" />
+        <option value="$PROJECT_DIR$/HsEduServer/settings.py" />
       </list>
     </option>
   </component>
@@ -310,6 +290,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -339,6 +320,14 @@
               <item name="Education" type="b2602c69:ProjectViewProjectNode" />
               <item name="Education" type="462c0819:PsiDirectoryNode" />
               <item name="HsEdu" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Education" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Education" type="462c0819:PsiDirectoryNode" />
+              <item name="HsEdu" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -350,12 +339,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server/AdProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -442,7 +430,7 @@
       <module name="WeiShop" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
-      <option name="host" value="localhost" />
+      <option name="host" value="192.168.1.104" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -656,9 +644,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40151516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25324675" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15778251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2510661" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -692,7 +680,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/HsEdu/static/js/resource_add.js</url>
           <line>175</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -728,7 +715,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="80" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -737,13 +724,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HsEdu/static/js/home/homebak.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HsEdu/static/js/home/res/res.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -781,13 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2832">
           <caret line="118" column="17" lean-forward="true" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -904,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HsEduServer/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HsEdu/Api/Game/WordInit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -995,17 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="189" column="8" lean-forward="false" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/Api/Custom/CustomApi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3496">
-          <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding>
-            <element signature="e#7217#9379#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,15 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1805">
           <caret line="95" column="19" lean-forward="false" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/Api/PublicService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="96" column="4" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,18 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <element signature="e#285#1149#0" expanded="false" />
-            <element signature="e#1181#1476#0" expanded="false" />
-            <element signature="e#1514#2244#0" expanded="false" />
-            <element signature="e#2280#2462#0" expanded="false" />
-            <element signature="e#2518#2805#0" expanded="false" />
-            <element signature="e#2838#3023#0" expanded="false" />
-            <element signature="e#3053#3359#0" expanded="false" />
-            <element signature="e#3398#3655#0" expanded="false" />
-            <element signature="e#3690#3722#0" expanded="false" />
-            <element signature="e#3752#4069#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1048,16 +981,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/static/Images/ResImage/8c0ba7a97b8a454487c11db45048b266.jpg" />
+    <entry file="file://$PROJECT_DIR$/HsEdu/static/Images/ResImage/8c0ba7a97b8a454487c11db45048b266_org.jpg" />
+    <entry file="file://$PROJECT_DIR$/HsEdu/static/Public/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2014">
+          <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <marker date="1533468972149" expanded="true" signature="259:279" ph="..." />
+            <marker date="1533468972149" expanded="true" signature="912:927" ph="..." />
+            <marker date="1533468972149" expanded="true" signature="1024:1039" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/Api/ResourceApi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="161" column="29" lean-forward="false" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="29" />
+          <folding>
+            <element signature="e#46#67#0" expanded="true" />
+            <element signature="e#2217#3756#0" expanded="false" />
+            <element signature="e#3818#5022#0" expanded="false" />
+            <element signature="e#6267#9693#0" expanded="false" />
+            <element signature="e#9755#11979#0" expanded="false" />
+            <element signature="e#12042#13140#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2109">
+          <caret line="114" column="11" lean-forward="true" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="211" column="32" lean-forward="false" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEduServer/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/Api/WebCenterApi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355">
+          <caret line="565" column="8" lean-forward="false" selection-start-line="565" selection-start-column="8" selection-end-line="565" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/static/js/resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="54" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/static/js/home/resource_store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HsEdu/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HsEdu/static/js/home/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1123">
-          <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+        <state relative-caret-position="513">
+          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
           <folding>
             <marker date="1533302932696" expanded="true" signature="335:402" ph="..." />
             <marker date="1533302932696" expanded="true" signature="536:548" ph="..." />
@@ -1081,117 +1091,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/static/Images/ResImage/8c0ba7a97b8a454487c11db45048b266.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/static/Images/ResImage/8c0ba7a97b8a454487c11db45048b266_org.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/Api/WebCenterApi.py">
+    <entry file="file://$PROJECT_DIR$/HsEdu/Api/Custom/CustomApi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="372" column="31" lean-forward="false" selection-start-line="367" selection-start-column="12" selection-end-line="372" selection-end-column="31" />
+        <state relative-caret-position="3952">
+          <caret line="208" column="25" lean-forward="false" selection-start-line="208" selection-start-column="25" selection-end-line="208" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HsEduServer/urls.py">
+    <entry file="file://$PROJECT_DIR$/HsEdu/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+        <state relative-caret-position="1387">
+          <caret line="75" column="11" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="817">
+          <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HsEdu/static/js/resource_add.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="151" selection-end-column="6" />
+        <state relative-caret-position="529">
+          <caret line="226" column="28" lean-forward="false" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
           <folding>
             <element signature="e#2246#4132#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/models.py">
+    <entry file="file://$PROJECT_DIR$/HsEdu/Api/PublicService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="75" column="11" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="11" />
+        <state relative-caret-position="344">
+          <caret line="243" column="22" lean-forward="true" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/static/Public/public.js">
+    <entry file="file://$PROJECT_DIR$/HsEduServer/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
-          <folding>
-            <marker date="1533468972149" expanded="true" signature="259:279" ph="..." />
-            <marker date="1533468972149" expanded="true" signature="912:927" ph="..." />
-            <marker date="1533468972149" expanded="true" signature="1024:1039" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/Api/ResourceApi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="161" column="29" lean-forward="false" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="29" />
-          <folding>
-            <element signature="e#46#67#0" expanded="true" />
-            <element signature="e#2217#3756#0" expanded="false" />
-            <element signature="e#3818#5022#0" expanded="false" />
-            <element signature="e#6267#9693#0" expanded="false" />
-            <element signature="e#9755#11979#0" expanded="false" />
-            <element signature="e#12042#13140#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="217" selection-end-column="11" />
-          <folding>
-            <element signature="e#7049#7702#0#HTML" expanded="false" />
-            <element signature="e#8007#8225#0#HTML" expanded="false" />
-            <element signature="e#8254#8508#0#HTML" expanded="false" />
-            <element signature="e#8542#8752#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/templates/resource_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="114" column="11" lean-forward="true" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#2;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HsEdu/static/js/resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="243">
+          <caret line="85" column="27" lean-forward="false" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -83,8 +83,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hsedu',
         'USER': 'root',
-        'PASSWORD': 'caojj123',
-        'HOST':'www.h-sen.com',
+        'PASSWORD': '123456',
+        'HOST':'localhost',
+        # 'HOST':'www.h-sen.com',
         'PORT': '3306',
     }
 }

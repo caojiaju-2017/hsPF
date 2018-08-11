@@ -123,14 +123,14 @@ def getName(type, ltype):
     '''
     ltype = int(ltype)
     if type == 0:
-        if ltype == 1:
-            return "高中"
-        elif ltype == 2:
-            return "初中"
-        elif ltype == 3:
+        if ltype <= 6:
             return "小学"
-        elif ltype == 4:
-            return "幼教"            
+        elif ltype >6 and ltype <= 9:
+            return "初中"
+        elif ltype > 9:
+            return "高中"
+        else:
+            return "其他"
     elif type == 1:
         if ltype == 1:
             return "一年级"
@@ -238,6 +238,7 @@ def getNameId(type, name):
 def queryResource(subjectid,filterS):
     resDatas =  HsResources.objects.all().order_by('-code')
     rtnDatas = []
+    resDatas = resDatas.filter(state = 1)
     for oneData in resDatas:
         # if gradeid != -1 and int(oneData.resgrade) != gradeid:
         #     continue

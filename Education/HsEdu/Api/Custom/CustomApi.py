@@ -212,7 +212,7 @@ class CustomApi(object):
         for oneRes in resDatas:
             resDict = {}
             resDict['ResGrade'] = getName(0, oneRes.resgrade)
-            resDict['ResLevel'] = getName(1, oneRes.reslevel)
+            resDict['ResLevel'] = getName(1, oneRes.resgrade)
             resDict['ResClass'] = getName(2, oneRes.resclass)
             resDict['ResInfo'] = oneRes.resinfo[:50]
             resDict['ResImage'] = oneRes.resimage

@@ -43,8 +43,8 @@ urlpatterns = [
 
     # 启动时微信登录---等待页面
     url(r'^wait.html',WebCenterApi.openWaitPage),
-    # url(r'^index.html',WebCenterApi.goHome),
-    url(r'^index.html',WebCenterApi.goHomeEx),
+    url(r'^index.html',WebCenterApi.goHome),
+    # url(r'^index.html',WebCenterApi.goHomeEx),
 
     # 微信授权
     url(r'^MP_verify_MSBMLCCIiHOH519f.txt', WebCenterApi.getWxAuthData),
